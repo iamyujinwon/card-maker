@@ -3,24 +3,31 @@ import styles from './login.module.css';
 import { BsGoogle, BsGithub } from 'react-icons/bs';
 import Character from '../../images/character.svg';
 
-const Login = () => {
+const Login = ({ authService }) => {
+  const onLogin = (event) => {
+    authService.login(event.currentTarget.textContent);
+  };
   return (
     <>
       <img src={Character} alt='character' />
-      <section className={styles.loginCard}>
+      <section className={styles.loginSection}>
         <div className={styles.login}>
           <span>Login</span>
           <p>Choose your login method</p>
-          <div className={styles.loginChoice}>
-            <div>
-              <BsGoogle />
-              <span>Google</span>
-            </div>
-            <div>
-              <BsGithub />
-              <span>GitHub</span>
-            </div>
-          </div>
+          <ul className={styles.loginProviders}>
+            <li className={styles.loginProvider}>
+              <button onClick={onLogin}>
+                <BsGoogle />
+                <span>Google</span>
+              </button>
+            </li>
+            <li className={styles.loginProvider}>
+              <button onClick={onLogin}>
+                <BsGithub />
+                <span>Github</span>
+              </button>
+            </li>
+          </ul>
         </div>
       </section>
     </>

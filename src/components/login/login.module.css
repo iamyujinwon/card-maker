@@ -14,7 +14,7 @@ img {
   transform: translateX(-50%) translateY(-50%);
 }
 
-.loginCard {
+.loginSection {
   background-color: white;
   position: absolute;
   top: 50%;
@@ -41,17 +41,28 @@ img {
   margin-bottom: 2rem;
 }
 
-.loginChoice > div {
+.loginProviders {
+  padding: 0;
+}
+
+.loginProvider {
+  list-style: none;
+}
+
+.loginProvider > button {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 100%;
   background-color: #fec785;
+  border: none;
   border-radius: 10px;
   padding: 1rem 0rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.loginChoice > div > span {
-  margin-left: 0.5rem;
+.loginProvider > button > span {
+  margin-left: 0.3rem;
 }

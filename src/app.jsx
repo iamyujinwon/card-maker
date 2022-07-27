@@ -1,10 +1,10 @@
 import './app.css';
 import Login from './components/login/login';
 
-function App() {
+function App({ authService }) {
   return (
     <>
-      <Login />
+      <Login authService={authService} />
     </>
   );
 }
