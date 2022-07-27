@@ -1,7 +1,7 @@
-@value makerWhite from '../../common/colors.css';
+@value makerWhite, background, primaryBtn from '../../common/colors.css';
 
 body {
-  background-color: #f3f0e8;
+  background-color: background;
   font-weight: 500;
 }
 
@@ -52,7 +52,7 @@ img {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #fec785;
+  background-color: primaryBtn;
   border: none;
   border-radius: 10px;
   padding: 1rem 0rem;

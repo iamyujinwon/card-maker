@@ -2,8 +2,14 @@ import React from 'react';
 import styles from './login.module.css';
 import { BsGoogle, BsGithub } from 'react-icons/bs';
 import Character from '../../images/character.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ authService }) => {
+  const navigate = useNavigate();
+  const goToMaker = () => {
+    navigate('/maker');
+  };
+
   const onLogin = (event) => {
     authService.login(event.currentTarget.textContent);
   };
