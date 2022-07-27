@@ -1,4 +1,4 @@
-import './app.css';
+import styles from './app.modules.css';
 import Login from './components/login/login';
 
 function App({ authService }) {

@@ -10,25 +10,23 @@ const Login = ({ authService }) => {
   return (
     <>
       <img src={Character} alt='character' />
-      <section className={styles.loginSection}>
-        <div className={styles.login}>
-          <span>Login</span>
-          <p>Choose your login method</p>
-          <ul className={styles.loginProviders}>
-            <li className={styles.loginProvider}>
-              <button onClick={onLogin}>
-                <BsGoogle />
-                <span>Google</span>
-              </button>
-            </li>
-            <li className={styles.loginProvider}>
-              <button onClick={onLogin}>
-                <BsGithub />
-                <span>Github</span>
-              </button>
-            </li>
-          </ul>
-        </div>
+      <section className={styles.login}>
+        <span className={styles.loginTitle}>Login</span>
+        <p className={styles.loginInfo}>Choose your login method</p>
+        <ul className={styles.loginProviders}>
+          <li className={styles.loginProvider}>
+            <button className={styles.button} onClick={onLogin}>
+              <BsGoogle />
+              <span className={styles.providerName}>Google</span>
+            </button>
+          </li>
+          <li className={styles.loginProvider}>
+            <button className={styles.button} onClick={onLogin}>
+              <BsGithub />
+              <span className={styles.providerName}>Github</span>
+            </button>
+          </li>
+        </ul>
       </section>
     </>
   );
