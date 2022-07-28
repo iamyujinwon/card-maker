@@ -1,0 +1,7 @@
+@value makerWhite, background, primaryBtn from '../../common/colors.css';
+
+.container {
+  background-color: makerWhite;
+  width: 100%;
+  border-radius: 10px;
+}
