@@ -1,0 +1,83 @@
+@value makerWhite, makerBlack, background, primaryBtn from '../../common/colors.css';
+
+.card {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 1em;
+  margin-bottom: 2em;
+  padding: 2rem 0;
+  background-color: yellow;
+  box-shadow: 2px 3px 6px 0px rgb(127, 127, 127);
+  max-width: 30rem;
+}
+
+.card.dark {
+  background-color: makerBlack;
+  color: makerWhite;
+}
+
+.card.dark > .avatar {
+  background-color: makerWhite;
+}
+
+.card.light {
+  background-color: makerWhite;
+  color: makerBlack;
+}
+
+.card.light > .avatar {
+  background-color: primaryBtn;
+}
+
+.card.colorful {
+  background-image: linear-gradient(
+    to top,
+    #a7fdc1,
+    #b9fbab,
+    #cef896,
+    #e6f282,
+    #ffeb73
+  );
+  color: makerBlack;
+}
+
+.avatar {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-left: 1.5em;
+  margin-right: 2rem;
+}
+
+.info {
+  width: 100%;
+}
+
+.name,
+.company,
+.title,
+.email,
+.message {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.company {
+  margin-bottom: 1.5rem;
+}
+
+.company::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: primaryBtn;
+  transform: translateY(0.5em);
+}

@@ -1,14 +1,15 @@
-@value background from '../../common/colors.css';
+@value makerWhite from '../../common/colors.css';
 
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: background;
+  height: 2.5rem;
+  background-color: makerWhite;
   width: 100%;
   display: flex;
-  padding: 1rem 0rem;
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
+  z-index: 10;
 }

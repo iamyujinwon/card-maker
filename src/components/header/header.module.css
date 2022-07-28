@@ -4,12 +4,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: background;
+  background-color: makerWhite;
   width: 100%;
   display: flex;
   padding: 0.5rem 2rem;
   justify-content: space-between;
   align-items: center;
+  z-index: 15;
 }
 
 .button {

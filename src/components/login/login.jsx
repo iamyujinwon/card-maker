@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './login.module.css';
 import { BsGoogle, BsGithub } from 'react-icons/bs';
-import logo from '../../images/logo.svg';
+import logo from '../images/logo.svg';
 import { useHistory } from 'react-router-dom';
 
 const Login = ({ authService }) => {

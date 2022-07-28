@@ -1,10 +1,20 @@
+@value makerWhite, makerBlack, background, primaryBtn from '../../common/colors.css';
+
 .preview {
   flex-basis: 50%;
-  background-color: pink;
+  background-color: background;
 }
 
 .title {
   width: 100%;
   text-align: center;
   margin-bottom: 1em;
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  padding: 1em 2em;
+  flex-direction: column;
+  align-items: center;
 }
