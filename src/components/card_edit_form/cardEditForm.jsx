@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from '../button/button';
 import styles from './cardEditForm.module.css';
 
 const CardEditForm = ({ card }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } =
     card;
+
+  const onSubmit = () => {};
   return (
     <form>
       <input type='text' name='name' value={name} />
@@ -16,6 +19,7 @@ const CardEditForm = ({ card }) => {
       <input type='text' name='title' value={title} />
       <input type='text' name='email' value={email} />
       <textarea name='message' value={message}></textarea>
+      <Button name='Delete' onClick={onSubmit} />
     </form>
   );
 };
