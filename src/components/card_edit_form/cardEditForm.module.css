@@ -1,0 +1,48 @@
+@value makerWhite, background, primaryBtn from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
+
+.form {
+  margin: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: makerWhite;
+  border-radius: 10px;
+}
+
+.section {
+  display: flex;
+}
+
+.section > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.input,
+.select,
+.textarea {
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5da;
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+}
