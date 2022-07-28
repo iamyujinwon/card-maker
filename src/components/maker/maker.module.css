@@ -1,7 +1,22 @@
 @value makerWhite, background, primaryBtn from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
+
+.maker {
+  padding-top: 5rem;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .container {
-  background-color: makerWhite;
-  width: 100%;
-  border-radius: 10px;
+  display: flex;
+  flex: 1;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
 }

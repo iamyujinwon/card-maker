@@ -1,0 +1,14 @@
+@value background from '../../common/colors.css';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: background;
+  width: 100%;
+  display: flex;
+  padding: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
