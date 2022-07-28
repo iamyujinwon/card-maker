@@ -2,6 +2,7 @@
 @value mediaQuery from '../../common/size.css';
 
 .editor {
+  padding-bottom: 3rem;
   flex-basis: 50%;
   background-color: background;
   border-right: 2px solid lightgray;

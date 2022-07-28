@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from '../button/button';
 import ImageFileInput from '../image_file_input/imageFileInput';
-import styles from './cardEditForm.module.css';
+import styles from './cardAddForm.module.css';
 
-const CardEditForm = ({ card }) => {
-  const { name, company, title, email, message, theme, fileName, fileURL } =
-    card;
+const CardAddForm = ({ onAdd }) => {
+  const formRef = useRef();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const companyRef = useRef();
+  const titleRef = useRef();
+  const themeRef = useRef();
+  const messageRef = useRef();
 
-  const onSubmit = () => {};
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const card = {
+      id: Date.now(), //uuid
+      name: nameRef.current.value || '',
+      email: emailRef.current.value || '',
+      company: companyRef.current.value || '',
+      title: titleRef.current.value || '',
+      theme: themeRef.current.value || '',
+      message: messageRef.current.value || '',
+      fileName: '',
+      fileURL: '',
+    };
+    formRef.current.reset();
+    onAdd(card);
+  };
+
   return (
-    <form className={styles.form}>
+    <form ref={formRef} className={styles.form}>
       <section className={styles.section}>
         <div className={styles.addMarginRight}>
           <label className={styles.label}>Name</label>
           <input
+            ref={nameRef}
             className={styles.input}
             type='text'
             name='name'
-            placeholder={name}
+            placeholder='Name'
           />
         </div>
         <div>
           <label className={styles.label}>Email</label>
           <input
+            ref={emailRef}
             className={styles.input}
             type='text'
             name='email'
-            placeholder={email}
+            placeholder='Email'
           />
         </div>
       </section>
@@ -34,27 +57,34 @@ const CardEditForm = ({ card }) => {
         <div className={styles.addMarginRight}>
           <label className={styles.label}>Company</label>
           <input
+            ref={companyRef}
             className={styles.input}
             type='text'
             name='company'
-            placeholder={company}
+            placeholder='Company'
           />
         </div>
         <div className={styles.addMarginRight}>
           <label className={styles.label}>Title</label>
           <input
+            ref={titleRef}
             className={styles.input}
             type='text'
             name='title'
-            placeholder={title}
+            placeholder='Title'
           />
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <select className={styles.select} name='theme' placeholder={theme}>
-            <option placeholder='dark'>Dark</option>
-            <option placeholder='light'>Light</option>
-            <option placeholder='colorful'>Colorful</option>
+          <select
+            ref={themeRef}
+            className={styles.select}
+            name='theme'
+            placeholder='Theme'
+          >
+            <option placeholder='dark'>dark</option>
+            <option placeholder='light'>light</option>
+            <option placeholder='colorful'>colorful</option>
           </select>
         </div>
       </section>
@@ -62,18 +92,18 @@ const CardEditForm = ({ card }) => {
         <div>
           <label className={styles.label}>Message</label>
           <textarea
+            ref={messageRef}
             className={styles.textarea}
             name='message'
-            placeholder={message}
+            placeholder='Message'
           ></textarea>
         </div>
       </section>
       <div className={styles.buttons}>
-        <Button name='Delete' onClick={onSubmit} />
-        <ImageFileInput />
+        <Button name='Add' onClick={onSubmit} />
       </div>
     </form>
   );
 };
 
-export default CardEditForm;
+export default CardAddForm;
