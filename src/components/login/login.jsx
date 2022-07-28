@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './login.module.css';
 import { BsGoogle, BsGithub } from 'react-icons/bs';
-import Character from '../../images/character.svg';
-import { useNavigate } from 'react-router-dom';
+import logo from '../../images/logo.svg';
+import { useHistory } from 'react-router-dom';
 
 const Login = ({ authService }) => {
-  const navigate = useNavigate();
-  const goToMaker = () => {
-    navigate('/maker');
+  const history = useHistory();
+  const goToMaker = (userId) => {
+    history.push({
+      pathname: '/maker',
+      state: { id: userId },
+    });
   };
 
   const onLogin = (event) => {
-    authService.login(event.currentTarget.textContent);
+    authService //
+      .login(event.currentTarget.textContent)
+      .then((data) => goToMaker(data.user.uid));
   };
+
+  useEffect(() => {
+    authService //
+      .onAuthChange((user) => {
+        user && goToMaker(user.uid);
+      });
+  });
+
   return (
     <>
-      <img src={Character} alt='character' />
+      <img src={logo} alt='logo' />
       <section className={styles.login}>
         <span className={styles.loginTitle}>Login</span>
         <p className={styles.loginInfo}>Choose your login method</p>
