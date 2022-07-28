@@ -27,9 +27,9 @@ const Login = ({ authService }) => {
   });
 
   return (
-    <>
-      <img src={logo} alt='logo' />
-      <section className={styles.login}>
+    <section className={styles.login}>
+      <img className={styles.logo} src={logo} alt='logo' />
+      <section className={styles.loginSection}>
         <span className={styles.loginTitle}>Login</span>
         <p className={styles.loginInfo}>Choose your login method</p>
         <ul className={styles.loginProviders}>
@@ -47,7 +47,7 @@ const Login = ({ authService }) => {
           </li>
         </ul>
       </section>
-    </>
+    </section>
   );
 };
 
