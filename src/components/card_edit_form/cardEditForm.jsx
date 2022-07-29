@@ -3,11 +3,23 @@ import Button from '../button/button';
 import ImageFileInput from '../image_file_input/imageFileInput';
 import styles from './cardEditForm.module.css';
 
-const CardEditForm = ({ card }) => {
+const CardEditForm = ({ card, updateCard, deleteCard }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } =
     card;
 
-  const onSubmit = () => {};
+  const onChange = (event) => {
+    if (event.currentTarget === null) {
+      return;
+    }
+    event.preventDefault();
+    updateCard({
+      ...card,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+  const onSubmit = () => {
+    deleteCard(card);
+  };
   return (
     <form className={styles.form}>
       <section className={styles.section}>
@@ -17,7 +29,8 @@ const CardEditForm = ({ card }) => {
             className={styles.input}
             type='text'
             name='name'
-            placeholder={name}
+            value={name}
+            onChange={onChange}
           />
         </div>
         <div>
@@ -26,7 +39,8 @@ const CardEditForm = ({ card }) => {
             className={styles.input}
             type='text'
             name='email'
-            placeholder={email}
+            value={email}
+            onChange={onChange}
           />
         </div>
       </section>
@@ -37,7 +51,8 @@ const CardEditForm = ({ card }) => {
             className={styles.input}
             type='text'
             name='company'
-            placeholder={company}
+            value={company}
+            onChange={onChange}
           />
         </div>
         <div className={styles.addMarginRight}>
@@ -46,15 +61,21 @@ const CardEditForm = ({ card }) => {
             className={styles.input}
             type='text'
             name='title'
-            placeholder={title}
+            value={title}
+            onChange={onChange}
           />
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <select className={styles.select} name='theme' placeholder={theme}>
-            <option placeholder='dark'>Dark</option>
-            <option placeholder='light'>Light</option>
-            <option placeholder='colorful'>Colorful</option>
+          <select
+            className={styles.select}
+            name='theme'
+            value={theme}
+            onChange={onChange}
+          >
+            <option placeholder='Dark'>Dark</option>
+            <option placeholder='Light'>Light</option>
+            <option placeholder='Colorful'>Colorful</option>
           </select>
         </div>
       </section>
@@ -64,13 +85,14 @@ const CardEditForm = ({ card }) => {
           <textarea
             className={styles.textarea}
             name='message'
-            placeholder={message}
+            value={message}
+            onChange={onChange}
           ></textarea>
         </div>
       </section>
       <div className={styles.buttons}>
-        <Button name='Delete' onClick={onSubmit} />
         <ImageFileInput />
+        <Button name='Delete' onClick={onSubmit} />
       </div>
     </form>
   );

@@ -13,6 +13,7 @@ const CardAddForm = ({ onAdd }) => {
   const messageRef = useRef();
 
   const onSubmit = (event) => {
+    console.log(event.currentTarget);
     event.preventDefault();
     const card = {
       id: Date.now(), //uuid
@@ -26,7 +27,7 @@ const CardAddForm = ({ onAdd }) => {
       fileURL: '',
     };
     formRef.current.reset();
-    onAdd(card);
+    card.name !== '' && onAdd(card);
   };
 
   return (
@@ -76,15 +77,10 @@ const CardAddForm = ({ onAdd }) => {
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <select
-            ref={themeRef}
-            className={styles.select}
-            name='theme'
-            placeholder='Theme'
-          >
-            <option placeholder='dark'>dark</option>
-            <option placeholder='light'>light</option>
-            <option placeholder='colorful'>colorful</option>
+          <select ref={themeRef} className={styles.select} name='theme'>
+            <option placeholder='Dark'>Dark</option>
+            <option placeholder='Light'>Light</option>
+            <option placeholder='Colorful'>Colorful</option>
           </select>
         </div>
       </section>
@@ -100,6 +96,7 @@ const CardAddForm = ({ onAdd }) => {
         </div>
       </section>
       <div className={styles.buttons}>
+        <ImageFileInput />
         <Button name='Add' onClick={onSubmit} />
       </div>
     </form>
