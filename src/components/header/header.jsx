@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './header.module.css';
 import logo from '../images/logo.svg';
 
-const Header = ({ onLogout }) => {
+const Header = memo(({ onLogout }) => {
   return (
     <section className={styles.header}>
       <img className={styles.logo} src={logo} alt='logo' />
@@ -11,6 +11,6 @@ const Header = ({ onLogout }) => {
       </button>
     </section>
   );
-};
+});
 
 export default Header;
