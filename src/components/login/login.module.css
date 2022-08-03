@@ -10,35 +10,30 @@ img {
   z-index: 10;
 }
 
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .logo {
-  margin-bottom: 0.5rem;
+  width: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 .loginSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: makerWhite;
-  width: 25rem;
+  width: 28rem;
   border-radius: 20px;
   text-align: center;
   padding: 1.5rem 2rem;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .loginTitle {
   font-weight: 800;
-  font-size: 1.5rem;
-}
-
-.loginInfo {
-  font-weight: 400;
-  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .loginProviders {
+  margin-top: 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -49,17 +44,94 @@ img {
 .button {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  background-color: primaryBtn;
-  border: none;
-  border-radius: 10px;
-  padding: 1rem 0rem;
+  background-color: makerWhite;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 0.5rem 0rem;
   margin-bottom: 1rem;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
 }
 
+.google {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+.github {
+  width: 1.8rem;
+  margin-right: 0.5rem;
+}
+
 .providerName {
   margin-left: 0.3rem;
+}
+
+.divideSection {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.divider {
+  width: 100%;
+  border-top: 1.5px solid lightgray;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.dividerOr {
+  color: lightgray;
+  margin: 0 1rem;
+}
+
+.form {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.customField {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.input {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.loginBtn {
+  width: 100%;
+  border: 1px solid primaryBtn;
+  background-color: primaryBtn;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0px 4px 10px #ffdfb8;
+  cursor: pointer;
+}
+
+.signUp {
+  margin-top: 1rem;
+  color: gray;
+}
+
+.signUp > span {
+  color: black;
 }
