@@ -6,6 +6,14 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } =
     card;
 
+  const onFileChange = (file) => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
+
   const onChange = (event) => {
     if (event.currentTarget === null) {
       return;
@@ -16,9 +24,11 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
       [event.currentTarget.name]: event.currentTarget.value,
     });
   };
+
   const onSubmit = () => {
     deleteCard(card);
   };
+
   return (
     <form className={styles.form}>
       <section className={styles.section}>
@@ -90,7 +100,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         </div>
       </section>
       <div className={styles.buttons}>
-        <FileInput />
+        <FileInput name={fileName} onFileChange={onFileChange} />
         <Button name='Delete' onClick={onSubmit} />
       </div>
     </form>

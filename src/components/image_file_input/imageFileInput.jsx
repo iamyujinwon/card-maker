@@ -11,8 +11,8 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
   const onChange = async (event) => {
     const uploaded = await imageUploader.upload(event.target.files[0]);
     onFileChange({
-      name: 'fileName',
-      url: 'url',
+      name: uploaded.original_filename,
+      url: uploaded.url,
     });
   };
 
