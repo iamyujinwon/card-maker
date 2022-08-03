@@ -8,7 +8,33 @@
   font-size: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  background-color: primaryBtn;
   border-radius: 10px;
+}
+
+.button.yellow {
+  background-color: primaryBtn;
   border: 1px solid primaryBtn;
+}
+
+.button.green {
+  background-color: #a5f1d0;
+  border: 1px solid #a5f1d0;
+}
+
+.loading {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top: 3px solid makerWhite;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(350deg);
+  }
 }
