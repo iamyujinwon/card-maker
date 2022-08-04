@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import styles from './login.module.css';
+import styles from './register.module.css';
 import logo from '../images/logo.svg';
-import googleLogo from '../images/google_logo.png';
-import githubLogo from '../images/github_logo.png';
 import { useHistory, Link } from 'react-router-dom';
 
-const Login = ({ authService }) => {
+const Register = ({ authService }) => {
   const formRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
 
   const history = useHistory();
   const goToMaker = (userId) => {
@@ -32,28 +31,9 @@ const Login = ({ authService }) => {
   });
 
   return (
-    <section className={styles.loginSection}>
+    <section className={styles.registerSection}>
       <img className={styles.logo} src={logo} alt='logo' />
-      <span className={styles.loginTitle}>Log In</span>
-      <ul className={styles.loginProviders}>
-        <li className={styles.loginProvider}>
-          <button className={styles.button} onClick={onLogin}>
-            <img className={styles.google} src={googleLogo} alt='Google' />
-            <span className={styles.providerName}>Sign up with Google</span>
-          </button>
-        </li>
-        <li className={styles.loginProvider}>
-          <button className={styles.button} onClick={onLogin}>
-            <img className={styles.github} src={githubLogo} alt='Github' />
-            <span className={styles.providerName}>Sign up with Github</span>
-          </button>
-        </li>
-      </ul>
-      <section className={styles.divideSection}>
-        <hr className={styles.divider}></hr>
-        <span className={styles.dividerOr}>OR</span>
-        <hr className={styles.divider}></hr>
-      </section>
+      <span className={styles.registerTitle}>Register</span>
       <form className={styles.form} ref={formRef}>
         <div className={styles.customField}>
           <label className={styles.label}>Email</label>
@@ -75,16 +55,26 @@ const Login = ({ authService }) => {
             placeholder='Enter password'
           />
         </div>
-        <button className={styles.loginBtn}>Log In</button>
-        <div className={styles.signUp}>
-          Don't have account?
-          <Link to='/register' className={styles.toRegister}>
-            Sign Up
-          </Link>
+        <div className={styles.customField}>
+          <label className={styles.label}>Confirm password</label>
+          <input
+            ref={confirmPasswordRef}
+            className={styles.input}
+            type='password'
+            name='name'
+            placeholder='Enter password'
+          />
         </div>
+        <button className={styles.loginBtn}>Register</button>
       </form>
+      <div className={styles.logIn}>
+        Have account?
+        <Link to='/' className={styles.toLogIn}>
+          Log In
+        </Link>
+      </div>
     </section>
   );
 };
 
-export default Login;
+export default Register;

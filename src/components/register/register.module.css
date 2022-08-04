@@ -15,7 +15,7 @@ img {
   margin-bottom: 1.5rem;
 }
 
-.loginSection {
+.registerSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,66 +27,9 @@ img {
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-.loginTitle {
+.registerTitle {
   font-weight: 800;
   font-size: 2rem;
-}
-
-.loginProviders {
-  margin-top: 2rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 0;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: makerWhite;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  padding: 0.5rem 0rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.google {
-  width: 2rem;
-  margin-right: 0.5rem;
-}
-
-.github {
-  width: 1.8rem;
-  margin-right: 0.5rem;
-}
-
-.providerName {
-  margin-left: 0.3rem;
-}
-
-.divideSection {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.divider {
-  width: 100%;
-  border-top: 1.5px solid lightgray;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
-}
-
-.dividerOr {
-  color: lightgray;
-  margin: 0 1rem;
 }
 
 .form {
@@ -127,16 +70,12 @@ img {
   cursor: pointer;
 }
 
-.signUp {
-  margin-top: 1rem;
+.logIn {
+  margin-bottom: 1rem;
   color: gray;
 }
 
-.signUp > span {
-  color: black;
-}
-
-.toRegister {
+.toLogIn {
   color: black;
   text-decoration: none;
   margin-left: 0.5rem;
