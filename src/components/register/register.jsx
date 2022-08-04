@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './register.module.css';
 import logo from '../images/logo.svg';
 import { useHistory, Link } from 'react-router-dom';
@@ -16,26 +16,55 @@ const Register = ({ authService }) => {
     });
   };
 
+  const [warning, setWarning] = useState('');
+
   const onRegister = (event) => {
     event.preventDefault();
-    console.log(emailRef.current.value);
-    console.log(passwordRef.current.value);
-    authService //
-      .register(emailRef.current.value, passwordRef.current.value)
-      .then(() => goToRegisterSuccess());
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const confirmPassword = confirmPasswordRef.current.value;
+
+    if (
+      checkEmptyValue(email, password, confirmPassword) &&
+      checkPasswordLength(password) &&
+      checkPassowordsMatch(password, confirmPassword)
+    ) {
+      authService //
+        .register(emailRef.current.value, passwordRef.current.value)
+        .then(() => goToRegisterSuccess());
+    }
   };
 
-  // useEffect(() => {
-  //   authService //
-  //     .onAuthChange((user) => {
-  //       user && goToMaker(user.uid);
-  //     });
-  // });
+  const checkEmptyValue = (email, password, confirmPassword) => {
+    if (email === '' || password === '' || confirmPassword === '') {
+      setWarning('Empty field is not allowed');
+      return false;
+    }
+    return true;
+  };
+
+  const checkPasswordLength = (password) => {
+    if (password.length < 6) {
+      setWarning('Password should be at least 6 lengths');
+      return false;
+    }
+    return true;
+  };
+
+  const checkPassowordsMatch = (password, confirmPassword) => {
+    if (password !== confirmPassword) {
+      setWarning('Passwords do not match');
+      return false;
+    }
+    return true;
+  };
 
   return (
     <section className={styles.registerSection}>
       <img className={styles.logo} src={logo} alt='logo' />
       <span className={styles.registerTitle}>Register</span>
+      <div className={styles.warning}>{warning}</div>
       <form className={styles.form} ref={formRef}>
         <div className={styles.customField}>
           <label className={styles.label}>Email</label>

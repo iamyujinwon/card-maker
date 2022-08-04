@@ -10,6 +10,11 @@ img {
   z-index: 10;
 }
 
+.warning {
+  margin-top: 1rem;
+  color: red;
+}
+
 .logo {
   width: 4rem;
   margin-bottom: 1.5rem;
