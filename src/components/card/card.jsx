@@ -5,8 +5,7 @@ import character from '../images/default_logo.png';
 const DEFAULT_IMAGE = character;
 
 const Card = memo(({ card }) => {
-  const { name, company, title, email, message, theme, fileName, fileURL } =
-    card;
+  const { name, company, title, email, message, theme, fileURL } = card;
   const url = fileURL || DEFAULT_IMAGE;
   return (
     <li className={`${styles.card} ${addTheme(theme)}`}>
