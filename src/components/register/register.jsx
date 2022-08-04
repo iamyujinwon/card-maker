@@ -10,25 +10,27 @@ const Register = ({ authService }) => {
   const confirmPasswordRef = useRef();
 
   const history = useHistory();
-  const goToMaker = (userId) => {
+  const goToRegisterSuccess = () => {
     history.push({
-      pathname: '/maker',
-      state: { id: userId },
+      pathname: '/register_success',
     });
   };
 
-  const onLogin = (event) => {
+  const onRegister = (event) => {
+    event.preventDefault();
+    console.log(emailRef.current.value);
+    console.log(passwordRef.current.value);
     authService //
-      .login(event.currentTarget.textContent)
-      .then((data) => goToMaker(data.user.uid));
+      .register(emailRef.current.value, passwordRef.current.value)
+      .then(() => goToRegisterSuccess());
   };
 
-  useEffect(() => {
-    authService //
-      .onAuthChange((user) => {
-        user && goToMaker(user.uid);
-      });
-  });
+  // useEffect(() => {
+  //   authService //
+  //     .onAuthChange((user) => {
+  //       user && goToMaker(user.uid);
+  //     });
+  // });
 
   return (
     <section className={styles.registerSection}>
@@ -65,7 +67,9 @@ const Register = ({ authService }) => {
             placeholder='Enter password'
           />
         </div>
-        <button className={styles.loginBtn}>Register</button>
+        <button className={styles.loginBtn} onClick={onRegister}>
+          Register
+        </button>
       </form>
       <div className={styles.logIn}>
         Have account?

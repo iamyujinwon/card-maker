@@ -1,17 +1,33 @@
-import { firebaseAuth, githubProvider, googleProvider } from './firebase';
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  createUserWithEmailAndPassword,
+} from 'firebase/auth';
 
 class AuthService {
+  constructor() {
+    this.firebaseAuth = getAuth();
+    this.googleProvider = new GoogleAuthProvider();
+    this.githubProvider = new GithubAuthProvider();
+  }
+
   login(providerName) {
     const authProvider = this.getProvider(providerName);
-    return firebaseAuth.signInWithPopup(authProvider);
+    return signInWithPopup(this.firebaseAuth, authProvider);
+  }
+
+  register(email, password) {
+    return createUserWithEmailAndPassword(this.firebaseAuth, email, password);
   }
 
   logout() {
-    firebaseAuth.signOut();
+    this.firebaseAuth.signOut();
   }
 
   onAuthChange(onUserChanged) {
-    firebaseAuth.onAuthStateChanged((user) => {
+    this.firebaseAuth.onAuthStateChanged((user) => {
       onUserChanged(user);
     });
   }
@@ -19,9 +35,9 @@ class AuthService {
   getProvider(providerName) {
     switch (providerName) {
       case 'Sign up with Google':
-        return googleProvider;
+        return this.googleProvider;
       case 'Sign up with Github':
-        return githubProvider;
+        return this.githubProvider;
       default:
         throw new Error(`not supported provider: ${providerName}`);
     }
