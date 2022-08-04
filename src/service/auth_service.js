@@ -4,6 +4,7 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 
 class AuthService {
@@ -20,6 +21,10 @@ class AuthService {
 
   register(email, password) {
     return createUserWithEmailAndPassword(this.firebaseAuth, email, password);
+  }
+
+  loginWithEmailAndPassword(email, password) {
+    return signInWithEmailAndPassword(this.firebaseAuth, email, password);
   }
 
   logout() {

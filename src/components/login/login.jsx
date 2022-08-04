@@ -24,12 +24,22 @@ const Login = ({ authService }) => {
       .then((data) => goToMaker(data.user.uid));
   };
 
-  useEffect(() => {
+  const onLoginWithEmailAndPassword = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
     authService //
-      .onAuthChange((user) => {
-        user && goToMaker(user.uid);
-      });
-  });
+      .loginWithEmailAndPassword(email, password)
+      .then((data) => goToMaker(data.user.uid));
+  };
+
+  // useEffect(() => {
+  //   authService //
+  //     .onAuthChange((user) => {
+  //       user && goToMaker(user.uid);
+  //     });
+  // });
 
   return (
     <section className={styles.loginSection}>
@@ -75,7 +85,12 @@ const Login = ({ authService }) => {
             placeholder='Enter password'
           />
         </div>
-        <button className={styles.loginBtn}>Log In</button>
+        <button
+          className={styles.loginBtn}
+          onClick={onLoginWithEmailAndPassword}
+        >
+          Log In
+        </button>
         <div className={styles.signUp}>
           Don't have account?
           <Link to='/register' className={styles.toRegister}>

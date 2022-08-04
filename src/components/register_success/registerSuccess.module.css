@@ -38,7 +38,8 @@ img {
 }
 
 .check {
-  width: 10rem;
+  margin: 1rem 0;
+  width: 3rem;
 }
 
 .messageSection > div {

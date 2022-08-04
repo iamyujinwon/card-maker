@@ -46,7 +46,7 @@ const Register = ({ authService }) => {
 
   const checkPasswordLength = (password) => {
     if (password.length < 6) {
-      setWarning('Password should be at least 6 lengths');
+      setWarning('Password should be at least 6 characters');
       return false;
     }
     return true;
