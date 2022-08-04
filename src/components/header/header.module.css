@@ -1,4 +1,4 @@
-@value makerWhite, background, primaryBtn from '../../common/colors.css';
+@value makerBlack, makerWhite, background, primaryBtn from '../../common/colors.css';
 
 .header {
   position: fixed;
@@ -13,12 +13,68 @@
   z-index: 15;
 }
 
-.button {
-  padding: 1rem 1.5rem;
-  margin: 0.5rem 0rem;
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
   border: none;
-  background-color: primaryBtn;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.profile:hover {
+  border-radius: 30px;
+  background-color: aliceblue;
+}
+
+.firstLetter {
+  margin-left: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: cadetblue;
+  border-radius: 50%;
+  color: white;
+}
+
+.popUp {
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  margin: 0.5rem 1.5rem;
+  border: none;
+  background-color: makerWhite;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
+}
+
+.logOut {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+}
+
+.logOut > span {
+  margin-left: 0.5rem;
+}
+
+.logOut:hover {
+  background-color: aliceblue;
+}
+
+.owner {
+  padding: 1rem 2rem;
+  text-align: center;
+  border-top: 1px solid lightgray;
+  font-size: 0.8rem;
+  cursor: text;
 }
