@@ -5,6 +5,7 @@ import {
   GithubAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from 'firebase/auth';
 
 class AuthService {
@@ -19,8 +20,15 @@ class AuthService {
     return signInWithPopup(this.firebaseAuth, authProvider);
   }
 
-  register(email, password) {
-    return createUserWithEmailAndPassword(this.firebaseAuth, email, password);
+  async register(email, password, name) {
+    const user = await createUserWithEmailAndPassword(
+      this.firebaseAuth,
+      email,
+      password
+    );
+    return await updateProfile(user.user.auth.currentUser, {
+      displayName: name,
+    });
   }
 
   loginWithEmailAndPassword(email, password) {

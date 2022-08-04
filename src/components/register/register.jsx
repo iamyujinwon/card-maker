@@ -5,6 +5,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 const Register = ({ authService }) => {
   const formRef = useRef();
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -21,6 +22,7 @@ const Register = ({ authService }) => {
   const onRegister = (event) => {
     event.preventDefault();
 
+    const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
@@ -31,7 +33,7 @@ const Register = ({ authService }) => {
       checkPassowordsMatch(password, confirmPassword)
     ) {
       authService //
-        .register(emailRef.current.value, passwordRef.current.value)
+        .register(email, password, name)
         .then(() => goToRegisterSuccess());
     }
   };
@@ -64,8 +66,18 @@ const Register = ({ authService }) => {
     <section className={styles.registerSection}>
       <img className={styles.logo} src={logo} alt='logo' />
       <span className={styles.registerTitle}>Register</span>
-      <div className={styles.warning}>{warning}</div>
+      {warning && <div className={styles.warning}>{warning}</div>}
       <form className={styles.form} ref={formRef}>
+        <div className={styles.customField}>
+          <label className={styles.label}>Name</label>
+          <input
+            ref={nameRef}
+            className={styles.input}
+            type='text'
+            name='name'
+            placeholder='Enter name'
+          />
+        </div>
         <div className={styles.customField}>
           <label className={styles.label}>Email</label>
           <input

@@ -11,6 +11,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
+  const [currentUserName, setCurrentUserName] = useState('');
 
   const onLogout = useCallback(() => {
     authService.logout();
@@ -29,7 +30,9 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {
+        console.log(user);
         setUserId(user.uid);
+        setCurrentUserName(user.auth.currentUser.displayName);
       } else {
         history.push('/');
       }
@@ -56,7 +59,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
 
   return (
     <section className={styles.maker}>
-      <Header onLogout={onLogout} />
+      <Header onLogout={onLogout} currentUserName={currentUserName} />
       <div className={styles.container}>
         <Editor
           FileInput={FileInput}
