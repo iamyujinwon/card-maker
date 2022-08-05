@@ -6,6 +6,7 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 import Preview from '../preview/preview';
 import styles from './cards.module.css';
+import { RiAddCircleFill } from 'react-icons/ri';
 
 const Cards = ({ authService, cardRepository }) => {
   const history = useHistory();
@@ -31,9 +32,6 @@ const Cards = ({ authService, cardRepository }) => {
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {
-        if (cards) {
-          Object.keys(cards).map((key) => console.log(cards[key]));
-        }
         setUserId(user.uid);
         setCurrentUserName(user.auth.currentUser.displayName);
       } else {
@@ -41,6 +39,8 @@ const Cards = ({ authService, cardRepository }) => {
       }
     });
   }, [authService, history]);
+
+  useEffect(() => console.log(Object.keys(cards).length));
 
   const createOrUpdateCard = (card) => {
     setCards((cards) => {
@@ -63,12 +63,21 @@ const Cards = ({ authService, cardRepository }) => {
   return (
     <section className={styles.cards}>
       <Header onLogout={onLogout} currentUserName={currentUserName} />
-      <div className={styles.title}>My Cards</div>
+      <section className={styles.section}>
+        <div className={styles.title}>My Cards</div>
+        <div className={styles.addBtn}>
+          <div className={styles.addMsg}>Add Card</div>
+          <RiAddCircleFill />
+        </div>
+      </section>
       <div className={styles.collection}>
-        {cards &&
+        {Object.keys(cards).length > 0 ? (
           Object.keys(cards).map((key) => (
             <Card key={key} card={cards[key]} deleteCard={deleteCard} />
-          ))}
+          ))
+        ) : (
+          <div className={styles.noCard}>No cards</div>
+        )}
       </div>
       <Footer />
     </section>

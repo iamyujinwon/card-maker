@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
 import styles from './card.module.css';
 import character from '../images/default_logo.png';
-import { BsTrash, BsPencilFill, BsDownload } from 'react-icons/bs';
-
 import { MdDelete, MdEdit, MdDownload } from 'react-icons/md';
+import { useHistory } from 'react-router-dom';
 
 const DEFAULT_IMAGE = character;
 
@@ -15,13 +14,27 @@ const Card = memo(({ card, deleteCard }) => {
     deleteCard(card);
   };
 
+  const history = useHistory();
+  // const goToMaker = (userId) => {
+  //   history.push({
+  //     pathname: '/maker',
+  //     state: { id: userId },
+  //   });
+  // };
+
+  const goToMaker = () => {
+    history.push({
+      pathname: '/maker',
+    });
+  };
+
   return (
     <li className={`${styles.card} ${addTheme(theme)}`}>
       <section className={styles.icons}>
         <div className={styles.trash} onClick={onDelete}>
           <MdDelete />
         </div>
-        <div className={styles.pencil}>
+        <div className={styles.pencil} onClick={goToMaker}>
           <MdEdit />
         </div>
         <div className={styles.download}>

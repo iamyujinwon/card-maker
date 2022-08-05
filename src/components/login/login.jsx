@@ -11,9 +11,9 @@ const Login = ({ authService }) => {
   const passwordRef = useRef();
 
   const history = useHistory();
-  const goToMaker = (userId) => {
+  const goToCards = (userId) => {
     history.push({
-      pathname: '/maker',
+      pathname: '/cards',
       state: { id: userId },
     });
   };
@@ -21,7 +21,7 @@ const Login = ({ authService }) => {
   const onLogin = (event) => {
     authService //
       .login(event.currentTarget.textContent)
-      .then((data) => goToMaker(data.user.uid));
+      .then((data) => goToCards(data.user.uid));
   };
 
   const onLoginWithEmailAndPassword = (event) => {
@@ -31,7 +31,7 @@ const Login = ({ authService }) => {
 
     authService //
       .loginWithEmailAndPassword(email, password)
-      .then((data) => goToMaker(data.user.uid));
+      .then((data) => goToCards(data.user.uid));
   };
 
   // useEffect(() => {

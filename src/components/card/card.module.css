@@ -53,23 +53,14 @@
 .trash:hover,
 .pencil:hover,
 .download:hover {
-  color: black;
-  background-color: primaryBtn;
+  color: primaryBtn;
 }
 
-.card.dark:hover {
-  background-color: rgba(48, 48, 48, 0.8);
-  color: rgba(73, 73, 73, 0.8);
-}
-
-.card.light:hover {
-  background-color: rgba(48, 48, 48, 0.8);
-  color: rgba(73, 73, 73, 0.8);
-}
-
+.card.dark:hover,
+.card.light:hover,
 .card.colorful:hover {
-  background-color: rgba(48, 48, 48, 0.8);
-  color: rgba(73, 73, 73, 0.8);
+  background-color: rgba(253, 224, 71, 0.8);
+  color: rgba(253, 224, 71, 0.8);
 }
 
 .avatar {
