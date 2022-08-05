@@ -2,12 +2,67 @@
 @value mediaQuery from '../../common/size.css';
 
 .cards {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 7rem;
+  padding: 3rem;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
 }
 
 .title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: primaryBtn;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid primaryBtn;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.addMsg {
+  margin-right: 0.5rem;
 }
 
 .collection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 3rem;
+}
+
+.noCard {
+  border: dashed 1px gray;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: gray;
+}
+
+@media (min-width: mediaQuery) and (max-width: 100rem) {
+  .collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3rem;
+  }
 }
 
 @media screen and (max-width: mediaQuery) {
@@ -21,33 +76,12 @@
   }
 
   .section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .title {
     font-size: 2rem;
     font-weight: 700;
-  }
-
-  .addBtn {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: primaryBtn;
-    padding: 0.8rem;
-    border-radius: 10px;
-    border: 1px solid primaryBtn;
-    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .addMsg {
-    margin-right: 0.5rem;
   }
 
   .collection {
@@ -58,7 +92,6 @@
   }
 
   .noCard {
-    margin-top: 1rem;
     border: dashed 1px gray;
     width: 100%;
     height: 10rem;
