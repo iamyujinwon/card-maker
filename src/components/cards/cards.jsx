@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
+import Card from '../card/card';
 import Editor from '../editor/editor';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Preview from '../preview/preview';
-import styles from './maker.module.css';
+import styles from './cards.module.css';
 
-const Maker = ({ FileInput, authService, cardRepository }) => {
+const Cards = ({ authService, cardRepository }) => {
   const history = useHistory();
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
@@ -30,6 +31,9 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {
+        if (cards) {
+          Object.keys(cards).map((key) => console.log(cards[key]));
+        }
         setUserId(user.uid);
         setCurrentUserName(user.auth.currentUser.displayName);
       } else {
@@ -57,21 +61,18 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   };
 
   return (
-    <section className={styles.maker}>
+    <section className={styles.cards}>
       <Header onLogout={onLogout} currentUserName={currentUserName} />
-      <div className={styles.container}>
-        <Editor
-          FileInput={FileInput}
-          cards={cards}
-          addCard={createOrUpdateCard}
-          updateCard={createOrUpdateCard}
-          deleteCard={deleteCard}
-        />
-        <Preview cards={cards} />
+      <div className={styles.title}>My Cards</div>
+      <div className={styles.collection}>
+        {cards &&
+          Object.keys(cards).map((key) => (
+            <Card key={key} card={cards[key]} deleteCard={deleteCard} />
+          ))}
       </div>
       <Footer />
     </section>
   );
 };
 
-export default Maker;
+export default Cards;

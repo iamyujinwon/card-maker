@@ -1,0 +1,34 @@
+@value mediaQuery from '../../common/size.css';
+
+.cards {
+}
+
+.title {
+}
+
+.collection {
+}
+
+@media screen and (max-width: mediaQuery) {
+  .cards {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
