@@ -6,20 +6,27 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-top: 7rem;
-  padding: 3rem;
+  margin-top: 10rem;
+  padding: 1rem;
 }
 
 .section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .title {
   font-size: 3rem;
   font-weight: 700;
+}
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .addBtn {
@@ -40,12 +47,6 @@
   margin-right: 0.5rem;
 }
 
-.collection {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 3rem;
-}
-
 .noCard {
   border: dashed 1px gray;
   width: 100%;
@@ -57,38 +58,20 @@
   color: gray;
 }
 
-@media (min-width: mediaQuery) and (max-width: 100rem) {
-  .collection {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 3rem;
-  }
-}
-
-@media screen and (max-width: mediaQuery) {
+@media (min-width: 1024px) {
   .cards {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
-    padding: 1rem;
-  }
-
-  .section {
-    margin-bottom: 2rem;
-  }
-
-  .title {
-    font-size: 2rem;
-    font-weight: 700;
+    margin-top: 7rem;
+    padding: 3rem;
   }
 
   .collection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
   }
 
   .noCard {
@@ -100,5 +83,21 @@
     align-items: center;
     border-radius: 10px;
     color: gray;
+  }
+}
+
+@media (min-width: 1280px) {
+  .collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 3rem;
   }
 }
