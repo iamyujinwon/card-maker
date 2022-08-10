@@ -1,14 +1,18 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
-import Card from '../card/card';
-import Editor from '../editor/editor';
-import Footer from '../footer/footer';
-import Header from '../header/header';
-import Preview from '../preview/preview';
-import styles from './cards.module.css';
-import { RiAddCircleFill } from 'react-icons/ri';
+import {
+  Route,
+  useHistory,
+  Switch,
+  BrowserRouter,
+  useRouteMatch,
+} from 'react-router-dom';
 
-const Cards = ({ authService, cardRepository }) => {
+import CardsList from '../cards_list/cardsList';
+import CardAdd from '../card_add/cardAdd';
+import Maker from '../maker/maker';
+
+const Cards = ({ FileInput, authService, cardRepository }) => {
+  const { path, url } = useRouteMatch();
   const history = useHistory();
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});
@@ -40,8 +44,6 @@ const Cards = ({ authService, cardRepository }) => {
     });
   }, [authService, history]);
 
-  useEffect(() => console.log(Object.keys(cards).length));
-
   const createOrUpdateCard = (card) => {
     setCards((cards) => {
       const updated = { ...cards };
@@ -61,26 +63,28 @@ const Cards = ({ authService, cardRepository }) => {
   };
 
   return (
-    <section className={styles.cards}>
-      <Header onLogout={onLogout} currentUserName={currentUserName} />
-      <section className={styles.section}>
-        <div className={styles.title}>My Cards</div>
-        <div className={styles.addBtn}>
-          <div className={styles.addMsg}>Add Card</div>
-          <RiAddCircleFill />
-        </div>
-      </section>
-      <div className={styles.collection}>
-        {Object.keys(cards).length > 0 ? (
-          Object.keys(cards).map((key) => (
-            <Card key={key} card={cards[key]} deleteCard={deleteCard} />
-          ))
-        ) : (
-          <div className={styles.noCard}>No cards</div>
-        )}
-      </div>
-      <Footer />
-    </section>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/cards'>
+          <CardsList
+            onLogout={onLogout}
+            currentUserName={currentUserName}
+            cards={cards}
+            deleteCard={deleteCard}
+          />
+        </Route>
+        <Route path={`${path}/new`}>
+          <CardAdd
+            FileInput={FileInput}
+            onAdd={createOrUpdateCard}
+            cards={cards}
+          />
+        </Route>
+        <Route path='/cards/:id'>
+          <Maker />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 

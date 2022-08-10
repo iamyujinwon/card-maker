@@ -7,6 +7,7 @@ import ImageUploader from './service/image_uploader';
 import ImageFileInput from './components/image_file_input/imageFileInput';
 import CardRepository from './service/card_repository';
 import { firebaseApp } from './service/firebase';
+import { BrowserRouter } from 'react-router-dom';
 
 const authService = new AuthService(firebaseApp);
 const cardRepository = new CardRepository(firebaseApp);
@@ -17,11 +18,13 @@ const FileInput = memo((props) => (
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App
-      authService={authService}
-      FileInput={FileInput}
-      cardRepository={cardRepository}
-    />
-  </React.StrictMode>
+  <BrowserRouter>
+    <React.StrictMode>
+      <App
+        authService={authService}
+        FileInput={FileInput}
+        cardRepository={cardRepository}
+      />
+    </React.StrictMode>
+  </BrowserRouter>
 );
