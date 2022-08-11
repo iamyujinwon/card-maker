@@ -34,6 +34,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
 
   return (
     <form className={styles.form}>
+      <div className={styles.title}>Edit Card</div>
       <section className={styles.section}>
         <div className={styles.addMarginRight}>
           <label className={styles.label}>Name</label>

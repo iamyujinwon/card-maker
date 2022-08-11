@@ -5,6 +5,7 @@ import CardAdd from '../card_add/cardAdd';
 import CardEdit from '../card_edit/cardEdit';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import styles from './cards.module.css';
 
 const Cards = ({ FileInput, authService, cardRepository }) => {
   const { path, url } = useRouteMatch();

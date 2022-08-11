@@ -1,7 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
 import Button from '../button/button';
 import styles from './cardAddForm.module.css';
-import { IoIosArrowBack } from 'react-icons/io';
+import { RiArrowGoBackFill } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
@@ -50,7 +50,7 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   return (
     <form ref={formRef} className={styles.form}>
       <button className={styles.backBtn} onClick={goToCards}>
-        <IoIosArrowBack />
+        <RiArrowGoBackFill />
       </button>
       <div className={styles.title}>New Card</div>
       <section className={styles.section}>

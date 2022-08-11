@@ -1,0 +1,29 @@
+.section {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 25rem;
+}
+
+.editForm {
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .editForm {
+    display: flex;
+    justify-content: center;
+    flex-basis: 50%;
+    margin-bottom: 0;
+  }
+
+  .preview {
+    flex-basis: 50%;
+  }
+}
