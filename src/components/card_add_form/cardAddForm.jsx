@@ -2,6 +2,7 @@ import React, { memo, useRef, useState } from 'react';
 import Button from '../button/button';
 import styles from './cardAddForm.module.css';
 import { IoIosArrowBack } from 'react-icons/io';
+import { useHistory } from 'react-router-dom';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
   const formRef = useRef();
@@ -12,6 +13,13 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const themeRef = useRef();
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
+
+  const history = useHistory();
+  const goToCards = () => {
+    history.push({
+      pathname: '/cards',
+    });
+  };
 
   const onFileChange = (file) => {
     setFile({
@@ -36,11 +44,12 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
     formRef.current.reset();
     setFile({ fileName: null, fileURL: null });
     card.name !== '' && onAdd(card);
+    goToCards();
   };
 
   return (
     <form ref={formRef} className={styles.form}>
-      <button className={styles.backBtn}>
+      <button className={styles.backBtn} onClick={goToCards}>
         <IoIosArrowBack />
       </button>
       <div className={styles.title}>New Card</div>
