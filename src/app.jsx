@@ -3,7 +3,7 @@ import styles from './app.module.css';
 import Cards from './components/cards/cards';
 import CardAdd from './components/card_add/cardAdd';
 import Login from './components/login/login';
-import Maker from './components/maker/maker';
+import NotFound from './components/not_found/notFound';
 import Register from './components/register/register';
 import RegisterSuccess from './components/register_success/registerSuccess';
 
@@ -22,13 +22,6 @@ function App({ FileInput, authService, cardRepository }) {
         </Route>
         <Route path='/cards'>
           <Cards
-            FileInput={FileInput}
-            authService={authService}
-            cardRepository={cardRepository}
-          />
-        </Route>
-        <Route path='/maker'>
-          <Maker
             FileInput={FileInput}
             authService={authService}
             cardRepository={cardRepository}

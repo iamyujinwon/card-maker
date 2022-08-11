@@ -1,33 +1,16 @@
-import React, { memo } from 'react';
-import styles from './card.module.css';
+import React from 'react';
+import { memo } from 'react';
+import styles from './cardPreview.module.css';
 import character from '../images/default_logo.png';
-import { MdDelete, MdEdit, MdDownload } from 'react-icons/md';
-import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 
 const DEFAULT_IMAGE = character;
 
-const Card = memo(({ card, deleteCard }) => {
-  const { path, url } = useRouteMatch();
+const CardPreview = memo(({ card }) => {
   const { name, company, title, email, message, theme, fileURL } = card;
   const fileUrl = fileURL || DEFAULT_IMAGE;
 
-  const onDelete = () => {
-    deleteCard(card);
-  };
-
   return (
     <li className={`${styles.card} ${addTheme(theme)}`}>
-      <section className={styles.icons}>
-        <div className={styles.trash} onClick={onDelete}>
-          <MdDelete />
-        </div>
-        <Link to={`${url}/${card.id}`} className={styles.pencil}>
-          <MdEdit />
-        </Link>
-        <div className={styles.download}>
-          <MdDownload />
-        </div>
-      </section>
       <img className={styles.avatar} src={fileUrl} alt='profile' />
       <div className={styles.info}>
         <h1 className={styles.name}>{name}</h1>
@@ -53,4 +36,4 @@ function addTheme(theme) {
   }
 }
 
-export default Card;
+export default CardPreview;

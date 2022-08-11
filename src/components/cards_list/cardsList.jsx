@@ -6,7 +6,7 @@ import { RiAddCircleFill } from 'react-icons/ri';
 import Card from '../card/card';
 import { useHistory } from 'react-router-dom';
 
-const CardsList = ({ onLogout, currentUserName, cards, deleteCard }) => {
+const CardsList = ({ cards, deleteCard }) => {
   const history = useHistory();
   const goToCardNew = () => {
     history.push({
@@ -17,7 +17,6 @@ const CardsList = ({ onLogout, currentUserName, cards, deleteCard }) => {
   return (
     <>
       <section className={styles.cards}>
-        <Header onLogout={onLogout} currentUserName={currentUserName} />
         <section className={styles.section}>
           <div className={styles.title}>My Cards</div>
           <div className={styles.addBtn} onClick={goToCardNew}>
@@ -34,7 +33,6 @@ const CardsList = ({ onLogout, currentUserName, cards, deleteCard }) => {
             <div className={styles.noCard}>No cards</div>
           )}
         </div>
-        <Footer />
       </section>
     </>
   );

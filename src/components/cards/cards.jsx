@@ -1,15 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import {
-  Route,
-  useHistory,
-  Switch,
-  BrowserRouter,
-  useRouteMatch,
-} from 'react-router-dom';
-
+import { Route, useHistory, Switch, useRouteMatch } from 'react-router-dom';
 import CardsList from '../cards_list/cardsList';
 import CardAdd from '../card_add/cardAdd';
-import Maker from '../maker/maker';
+import CardEdit from '../card_edit/cardEdit';
+import Footer from '../footer/footer';
+import Header from '../header/header';
 
 const Cards = ({ FileInput, authService, cardRepository }) => {
   const { path, url } = useRouteMatch();
@@ -63,28 +58,26 @@ const Cards = ({ FileInput, authService, cardRepository }) => {
   };
 
   return (
-    <Switch>
-      <Route exact path={`${path}`}>
-        <CardsList
-          onLogout={onLogout}
-          currentUserName={currentUserName}
-          cards={cards}
-          deleteCard={deleteCard}
-        />
-      </Route>
-      <Route path={`${path}/new`}>
-        <CardAdd
-          onLogout={onLogout}
-          currentUserName={currentUserName}
-          FileInput={FileInput}
-          addCard={createOrUpdateCard}
-          cards={cards}
-        />
-      </Route>
-      <Route path={`${path}/:id`}>
-        <Maker />
-      </Route>
-    </Switch>
+    <>
+      <Header onLogout={onLogout} currentUserName={currentUserName} />
+      <Switch>
+        <Route exact path={`${path}`}>
+          <CardsList cards={cards} deleteCard={deleteCard} />
+        </Route>
+        <Route path={`${path}/new`}>
+          <CardAdd FileInput={FileInput} addCard={createOrUpdateCard} />
+        </Route>
+        <Route path={`${path}/:cardId`}>
+          <CardEdit
+            FileInput={FileInput}
+            updateCard={createOrUpdateCard}
+            deleteCard={deleteCard}
+            cards={cards}
+          />
+        </Route>
+      </Switch>
+      <Footer />
+    </>
   );
 };
 

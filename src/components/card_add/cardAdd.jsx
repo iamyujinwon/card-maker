@@ -9,12 +9,10 @@ import Header from '../header/header';
 import Preview from '../preview/preview';
 import styles from './cardAdd.module.css';
 
-const CardAdd = ({ onLogout, currentUserName, FileInput, addCard, cards }) => {
+const CardAdd = ({ FileInput, addCard }) => {
   return (
     <>
-      <Header onLogout={onLogout} currentUserName={currentUserName} />
       <CardAddForm FileInput={FileInput} onAdd={addCard} />
-      <Footer />
     </>
   );
 };
