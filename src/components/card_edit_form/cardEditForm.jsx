@@ -1,8 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
 import styles from './cardEditForm.module.css';
 
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
+  const history = useHistory();
   const { name, company, title, email, message, theme, fileName } = card;
 
   const onFileChange = (file) => {
@@ -25,7 +27,9 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
   };
 
   const onSubmit = () => {
-    deleteCard(card);
+    history.push({
+      pathname: '/cards',
+    });
   };
 
   return (
@@ -100,7 +104,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
       </section>
       <div className={styles.buttons}>
         <FileInput name={fileName} onFileChange={onFileChange} />
-        <Button name='Delete' onClick={onSubmit} />
+        <Button name='Done' onClick={onSubmit} />
       </div>
     </form>
   );

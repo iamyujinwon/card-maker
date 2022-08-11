@@ -1,0 +1,106 @@
+@value makerWhite, makerBlack, background, primaryBtn from '../../common/colors.css';
+
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 1em;
+  margin-bottom: 2em;
+  padding: 2rem 0;
+  background-color: yellow;
+  box-shadow: 2px 3px 6px 0px rgb(127, 127, 127);
+  max-width: 30rem;
+  transition: 0.3s;
+}
+
+.icons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0%;
+  right: 0%;
+  font-size: 2rem;
+  background-color: rgb(30, 30, 30);
+  height: 100%;
+  z-index: 15;
+  padding: 1rem;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.trash,
+.pencil,
+.download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  color: makerWhite;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.avatar {
+  transition: 0.3s;
+}
+
+.card.dark {
+  background-color: makerBlack;
+  color: makerWhite;
+}
+
+.card.light {
+  background-color: makerWhite;
+  color: makerBlack;
+}
+
+.card.colorful {
+  background-color: rgb(250, 164, 135);
+  color: makerBlack;
+}
+
+.avatar {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-left: 1.5em;
+  margin-right: 2rem;
+}
+
+.info {
+  width: 100%;
+}
+
+.name,
+.company,
+.title,
+.email,
+.message {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.company {
+  margin-bottom: 1.5rem;
+}
+
+.company::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: primaryBtn;
+  transform: translateY(0.5em);
+}

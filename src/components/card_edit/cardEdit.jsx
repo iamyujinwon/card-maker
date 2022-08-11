@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import CardAddForm from '../card_add_form/cardAddForm';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import CardEditForm from '../card_edit_form/cardEditForm';
 import Preview from '../preview/preview';
 import styles from './cardEdit.module.css';
@@ -23,16 +21,7 @@ const CardEdit = ({ FileInput, updateCard, deleteCard, cards }) => {
             />
           )
       )}
-      {/* {Object.keys(cards).map((key) => (
-        <CardEditForm
-          key={cardId}
-          FileInput={FileInput}
-          card={cards[cardId]}
-          updateCard={updateCard}
-          deleteCard={deleteCard}
-        />
-      ))}
-      <Preview key={cardId} card={cards[cardId]} /> */}
+      <Preview key={cardId} cards={cards} cardId={cardId} />
     </>
   );
 };
