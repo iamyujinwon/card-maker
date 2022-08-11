@@ -1,15 +1,37 @@
-@value makerWhite, background, primaryBtn from '../../common/colors.css';
+@value makerWhite, makerBlack, background, primaryBtn from '../../common/colors.css';
 @value mediaQuery from '../../common/size.css';
 
+.backBtn {
+  padding: 0.8rem;
+  background-color: darkslategray;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
 .form {
+  width: 40rem;
   margin: 1.5rem;
   padding: 1rem 2rem;
   background-color: makerWhite;
   border-radius: 10px;
 }
 
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
 .section {
   display: flex;
+  flex-direction: column;
 }
 
 .section > div {
@@ -41,11 +63,4 @@
 .buttons {
   display: flex;
   justify-content: space-between;
-}
-
-@media screen and (max-width: mediaQuery) {
-  .section {
-    display: flex;
-    flex-direction: column;
-  }
 }

@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import styles from './header.module.css';
 import logo from '../images/logo.svg';
 import { FiLogOut } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 
 const Header = memo(({ onLogout, currentUserName }) => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -11,9 +12,16 @@ const Header = memo(({ onLogout, currentUserName }) => {
     setShowDropDown(!showDropDown);
   };
 
+  const history = useHistory();
+  const goToCards = () => {
+    history.push({
+      pathname: '/cards',
+    });
+  };
+
   return (
     <section className={styles.header}>
-      <img className={styles.logo} src={logo} alt='logo' />
+      <img className={styles.logo} src={logo} alt='logo' onClick={goToCards} />
       <button className={styles.profile} onClick={onClick}>
         <div className={styles.displayName}>{currentUserName}</div>
         <div className={styles.firstLetter}>{firstLetter}</div>

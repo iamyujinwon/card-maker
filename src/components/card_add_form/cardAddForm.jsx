@@ -1,6 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
 import Button from '../button/button';
 import styles from './cardAddForm.module.css';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
   const formRef = useRef();
@@ -39,6 +40,10 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
 
   return (
     <form ref={formRef} className={styles.form}>
+      <button className={styles.backBtn}>
+        <IoIosArrowBack />
+      </button>
+      <div className={styles.title}>New Card</div>
       <section className={styles.section}>
         <div className={styles.addMarginRight}>
           <label className={styles.label}>Name</label>

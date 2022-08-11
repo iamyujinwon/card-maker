@@ -63,28 +63,28 @@ const Cards = ({ FileInput, authService, cardRepository }) => {
   };
 
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/cards'>
-          <CardsList
-            onLogout={onLogout}
-            currentUserName={currentUserName}
-            cards={cards}
-            deleteCard={deleteCard}
-          />
-        </Route>
-        <Route path={`${path}/new`}>
-          <CardAdd
-            FileInput={FileInput}
-            onAdd={createOrUpdateCard}
-            cards={cards}
-          />
-        </Route>
-        <Route path='/cards/:id'>
-          <Maker />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route exact path={`${path}`}>
+        <CardsList
+          onLogout={onLogout}
+          currentUserName={currentUserName}
+          cards={cards}
+          deleteCard={deleteCard}
+        />
+      </Route>
+      <Route path={`${path}/new`}>
+        <CardAdd
+          onLogout={onLogout}
+          currentUserName={currentUserName}
+          FileInput={FileInput}
+          addCard={createOrUpdateCard}
+          cards={cards}
+        />
+      </Route>
+      <Route path={`${path}/:id`}>
+        <Maker />
+      </Route>
+    </Switch>
   );
 };
 
