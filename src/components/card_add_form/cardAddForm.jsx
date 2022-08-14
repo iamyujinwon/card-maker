@@ -1,8 +1,9 @@
 import React, { memo, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
 import styles from './cardAddForm.module.css';
 import { RiArrowGoBackFill } from 'react-icons/ri';
-import { useHistory } from 'react-router-dom';
+import { ChromePicker } from 'react-color';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
   const formRef = useRef();
@@ -13,12 +14,22 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const themeRef = useRef();
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
+  const [themeColor, setThemeColor] = useState();
+  const [showPalette, setShowPalette] = useState(false);
 
   const history = useHistory();
   const goToCards = () => {
     history.push({
       pathname: '/cards',
     });
+  };
+
+  const showColorPalette = () => {
+    setShowPalette(!showPalette);
+  };
+
+  const handleChange = (color) => {
+    setThemeColor(color.hex);
   };
 
   const onFileChange = (file) => {
@@ -98,11 +109,16 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <select ref={themeRef} className={styles.select} name='theme'>
-            <option placeholder='Dark'>Dark</option>
-            <option placeholder='Light'>Light</option>
-            <option placeholder='Colorful'>Colorful</option>
-          </select>
+          <div
+            ref={themeRef}
+            className={styles.input}
+            onClick={showColorPalette}
+          >
+            {themeColor ? themeColor : 'Pick Theme Color'}
+          </div>
+          {showPalette && (
+            <ChromePicker color={themeColor} onChange={handleChange} />
+          )}
         </div>
       </section>
       <section className={styles.section}>
