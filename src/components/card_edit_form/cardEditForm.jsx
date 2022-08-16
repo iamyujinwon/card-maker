@@ -36,16 +36,22 @@ const CardEditForm = ({
     });
   };
 
-  const changeThemeColor = (themeColor) => {
-    updateCard({
-      ...card,
-      ['theme']: themeColor,
-    });
+  const changeThemeColor = () => {
+    if (themeColor !== undefined) {
+      updateCard({
+        ...card,
+        ['theme']: themeColor,
+      });
+    }
   };
 
-  const onSubmit = () => {
-    changeThemeColor(themeColor);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    changeThemeColor();
+    goToCards();
+  };
 
+  const goToCards = () => {
     history.push({
       pathname: '/cards',
     });
