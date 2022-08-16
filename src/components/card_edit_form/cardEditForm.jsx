@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
 import styles from './cardEditForm.module.css';
+import { ChromePicker } from 'react-color';
 
-const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
+const CardEditForm = ({
+  FileInput,
+  card,
+  updateCard,
+  themeColor,
+  showPalette,
+  showColorPalette,
+  handleChange,
+  closePicker,
+}) => {
   const history = useHistory();
   const { name, company, title, email, message, theme, fileName } = card;
 
@@ -26,7 +36,16 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
     });
   };
 
+  const changeThemeColor = (themeColor) => {
+    updateCard({
+      ...card,
+      ['theme']: themeColor,
+    });
+  };
+
   const onSubmit = () => {
+    changeThemeColor(themeColor);
+
     history.push({
       pathname: '/cards',
     });
@@ -80,16 +99,24 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <select
+          <div
             className={styles.select}
             name='theme'
-            value={theme}
-            onChange={onChange}
+            onClick={showColorPalette}
+            style={{ backgroundColor: themeColor }}
           >
-            <option placeholder='Dark'>Dark</option>
-            <option placeholder='Light'>Light</option>
-            <option placeholder='Colorful'>Colorful</option>
-          </select>
+            {themeColor == undefined ? theme : themeColor}
+          </div>
+          {showPalette && (
+            <section className={styles.colorSection}>
+              <div className={styles.colorPicker}>
+                <ChromePicker color={themeColor} onChange={handleChange} />
+                <button className={styles.colorCloseBtn} onClick={closePicker}>
+                  Close
+                </button>
+              </div>
+            </section>
+          )}
         </div>
       </section>
       <section className={styles.section}>

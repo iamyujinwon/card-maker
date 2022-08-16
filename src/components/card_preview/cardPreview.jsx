@@ -5,12 +5,23 @@ import character from '../images/default_logo.png';
 
 const DEFAULT_IMAGE = character;
 
-const CardPreview = memo(({ card }) => {
+const CardPreview = memo(({ card, themeColor }) => {
   const { name, company, title, email, message, theme, fileURL } = card;
   const fileUrl = fileURL || DEFAULT_IMAGE;
 
+  console.log(theme);
+  console.log(themeColor);
+
   return (
-    <li className={`${styles.card} ${addTheme(theme)}`}>
+    <li
+      className={styles.card}
+      style={{
+        backgroundColor:
+          theme === themeColor
+            ? theme
+            : themeColor || (themeColor === undefined && theme),
+      }}
+    >
       <img className={styles.avatar} src={fileUrl} alt='profile' />
       <div className={styles.info}>
         <h1 className={styles.name}>{name}</h1>
@@ -22,18 +33,5 @@ const CardPreview = memo(({ card }) => {
     </li>
   );
 });
-
-function addTheme(theme) {
-  switch (theme) {
-    case 'Dark':
-      return styles.dark;
-    case 'Light':
-      return styles.light;
-    case 'Colorful':
-      return styles.colorful;
-    default:
-      throw new Error(`unknown theme: ${theme}`);
-  }
-}
 
 export default CardPreview;

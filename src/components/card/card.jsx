@@ -15,8 +15,10 @@ const Card = memo(({ card, deleteCard }) => {
     deleteCard(card);
   };
 
+  console.log(theme);
+
   return (
-    <li className={`${styles.card} ${addTheme(theme)}`}>
+    <li className={styles.card} style={{ backgroundColor: theme }}>
       <section className={styles.icons}>
         <div className={styles.trash} onClick={onDelete}>
           <MdDelete />
@@ -39,18 +41,5 @@ const Card = memo(({ card, deleteCard }) => {
     </li>
   );
 });
-
-function addTheme(theme) {
-  switch (theme) {
-    case 'Dark':
-      return styles.dark;
-    case 'Light':
-      return styles.light;
-    case 'Colorful':
-      return styles.colorful;
-    default:
-      throw new Error(`unknown theme: ${theme}`);
-  }
-}
 
 export default Card;

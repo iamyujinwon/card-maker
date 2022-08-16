@@ -32,6 +32,10 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
     setThemeColor(color.hex);
   };
 
+  const closePicker = () => {
+    setShowPalette(!showPalette);
+  };
+
   const onFileChange = (file) => {
     setFile({
       fileName: file.name,
@@ -47,11 +51,13 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
       email: emailRef.current.value || '',
       company: companyRef.current.value || '',
       title: titleRef.current.value || '',
-      theme: themeRef.current.value || '',
+      theme: themeColor || '',
       message: messageRef.current.value || '',
       fileName: file.fileName || '',
       fileURL: file.fileURL || '',
     };
+
+    console.log(card);
     formRef.current.reset();
     setFile({ fileName: null, fileURL: null });
     card.name !== '' && onAdd(card);
@@ -110,14 +116,21 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
         <div>
           <label className={styles.label}>Theme</label>
           <div
-            ref={themeRef}
             className={styles.input}
             onClick={showColorPalette}
+            style={{ backgroundColor: themeColor }}
           >
-            {themeColor ? themeColor : 'Pick Theme Color'}
+            {themeColor ? themeColor : 'Click to pick theme color'}
           </div>
           {showPalette && (
-            <ChromePicker color={themeColor} onChange={handleChange} />
+            <section className={styles.colorSection}>
+              <div className={styles.colorPicker}>
+                <ChromePicker color={themeColor} onChange={handleChange} />
+                <button className={styles.colorCloseBtn} onClick={closePicker}>
+                  Close
+                </button>
+              </div>
+            </section>
           )}
         </div>
       </section>

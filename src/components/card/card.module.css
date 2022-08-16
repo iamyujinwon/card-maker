@@ -8,6 +8,7 @@
   border-radius: 1em;
   margin-bottom: 2em;
   padding: 2rem 0;
+  background-color: yellow;
   box-shadow: 2px 3px 6px 0px rgb(127, 127, 127);
   max-width: 30rem;
   transition: 0.3s;
@@ -55,34 +56,12 @@
   color: primaryBtn;
 }
 
-.card.dark:hover,
-.card.light:hover,
-.card.colorful:hover {
-  background-color: rgba(253, 224, 71, 0.8);
-  color: rgba(253, 224, 71, 0.8);
-}
-
 .avatar {
   transition: 0.3s;
 }
 
 .card:hover > .avatar {
   opacity: 0.1;
-}
-
-.card.dark {
-  background-color: makerBlack;
-  color: makerWhite;
-}
-
-.card.light {
-  background-color: makerWhite;
-  color: makerBlack;
-}
-
-.card.colorful {
-  background-color: rgb(250, 164, 135);
-  color: makerBlack;
 }
 
 .avatar {
