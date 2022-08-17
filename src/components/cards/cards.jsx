@@ -5,7 +5,6 @@ import CardAdd from '../card_add/cardAdd';
 import CardEdit from '../card_edit/cardEdit';
 import Footer from '../footer/footer';
 import Header from '../header/header';
-import styles from './cards.module.css';
 
 const Cards = ({ FileInput, authService, cardRepository }) => {
   const { path, url } = useRouteMatch();
@@ -63,7 +62,7 @@ const Cards = ({ FileInput, authService, cardRepository }) => {
       <Header onLogout={onLogout} currentUserName={currentUserName} />
       <Switch>
         <Route exact path={`${path}`}>
-          <CardsList cards={cards} deleteCard={deleteCard} />
+          <CardsList userId={userId} cards={cards} deleteCard={deleteCard} />
         </Route>
         <Route path={`${path}/new`}>
           <CardAdd FileInput={FileInput} addCard={createOrUpdateCard} />

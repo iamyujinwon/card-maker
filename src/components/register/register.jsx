@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './register.module.css';
 import logo from '../images/logo.svg';
 import { useHistory, Link } from 'react-router-dom';
@@ -9,15 +9,15 @@ const Register = ({ authService }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
+  const [warning, setWarning] = useState('');
 
   const history = useHistory();
-  const goToRegisterSuccess = () => {
+  const goToCards = (userId) => {
     history.push({
-      pathname: '/register_success',
+      pathname: '/cards',
+      state: { id: userId },
     });
   };
-
-  const [warning, setWarning] = useState('');
 
   const onRegister = (event) => {
     event.preventDefault();
@@ -34,7 +34,7 @@ const Register = ({ authService }) => {
     ) {
       authService //
         .register(email, password, name)
-        .then(() => goToRegisterSuccess());
+        .then(() => goToCards());
     }
   };
 
