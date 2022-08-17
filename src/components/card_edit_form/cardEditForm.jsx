@@ -105,13 +105,12 @@ const CardEditForm = ({
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <div
-            className={styles.select}
-            name='theme'
-            onClick={showColorPalette}
-            style={{ backgroundColor: themeColor }}
-          >
+          <div className={styles.theme} name='theme' onClick={showColorPalette}>
             {themeColor == undefined ? theme : themeColor}
+            <span
+              className={styles.color}
+              style={{ backgroundColor: themeColor }}
+            />
           </div>
           {showPalette && (
             <section className={styles.colorSection}>

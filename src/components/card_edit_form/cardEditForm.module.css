@@ -70,12 +70,28 @@
 }
 
 .input,
-.select,
 .textarea {
   padding: 0.5rem 0.5rem;
   border-radius: 5px;
   border: 1px solid #d1d5da;
   font-size: 1rem;
+}
+
+.theme {
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5da;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid #d1d5da;
 }
 
 .buttons {

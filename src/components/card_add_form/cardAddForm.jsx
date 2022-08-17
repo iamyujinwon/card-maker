@@ -11,7 +11,6 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const emailRef = useRef();
   const companyRef = useRef();
   const titleRef = useRef();
-  const themeRef = useRef();
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
   const [themeColor, setThemeColor] = useState();
@@ -115,12 +114,12 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
         </div>
         <div>
           <label className={styles.label}>Theme</label>
-          <div
-            className={styles.input}
-            onClick={showColorPalette}
-            style={{ backgroundColor: themeColor }}
-          >
+          <div className={styles.theme} onClick={showColorPalette}>
             {themeColor ? themeColor : 'Click to pick theme color'}
+            <span
+              className={styles.color}
+              style={{ backgroundColor: themeColor }}
+            />
           </div>
           {showPalette && (
             <section className={styles.colorSection}>
