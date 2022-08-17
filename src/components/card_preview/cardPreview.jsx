@@ -9,9 +9,6 @@ const CardPreview = memo(({ card, themeColor }) => {
   const { name, company, title, email, message, theme, fileURL } = card;
   const fileUrl = fileURL || DEFAULT_IMAGE;
 
-  console.log(theme);
-  console.log(themeColor);
-
   return (
     <li
       className={styles.card}

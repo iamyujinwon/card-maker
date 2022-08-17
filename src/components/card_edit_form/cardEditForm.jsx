@@ -17,6 +17,12 @@ const CardEditForm = ({
   const history = useHistory();
   const { name, company, title, email, message, theme, fileName } = card;
 
+  const goToCards = () => {
+    history.push({
+      pathname: '/cards',
+    });
+  };
+
   const onFileChange = (file) => {
     updateCard({
       ...card,
@@ -49,12 +55,6 @@ const CardEditForm = ({
     event.preventDefault();
     changeThemeColor();
     goToCards();
-  };
-
-  const goToCards = () => {
-    history.push({
-      pathname: '/cards',
-    });
   };
 
   return (
@@ -109,7 +109,12 @@ const CardEditForm = ({
             {themeColor == undefined ? theme : themeColor}
             <span
               className={styles.color}
-              style={{ backgroundColor: themeColor }}
+              style={{
+                backgroundColor:
+                  theme === themeColor
+                    ? theme
+                    : themeColor || (themeColor === undefined && theme),
+              }}
             />
           </div>
           {showPalette && (
