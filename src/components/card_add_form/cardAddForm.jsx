@@ -13,7 +13,7 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const titleRef = useRef();
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
-  const [themeColor, setThemeColor] = useState();
+  const [themeColor, setThemeColor] = useState('#ffffff');
   const [showPalette, setShowPalette] = useState(false);
 
   const history = useHistory();
@@ -124,7 +124,11 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
           {showPalette && (
             <section className={styles.colorSection}>
               <div className={styles.colorPicker}>
-                <ChromePicker color={themeColor} onChange={handleChange} />
+                <ChromePicker
+                  color={themeColor}
+                  onChange={handleChange}
+                  input={themeColor}
+                />
                 <button className={styles.colorCloseBtn} onClick={closePicker}>
                   Close
                 </button>

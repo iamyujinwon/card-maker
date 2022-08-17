@@ -120,7 +120,11 @@ const CardEditForm = ({
           {showPalette && (
             <section className={styles.colorSection}>
               <div className={styles.colorPicker}>
-                <ChromePicker color={themeColor} onChange={handleChange} />
+                <ChromePicker
+                  color={themeColor}
+                  onChange={handleChange}
+                  input={themeColor}
+                />
                 <button className={styles.colorCloseBtn} onClick={closePicker}>
                   Close
                 </button>
