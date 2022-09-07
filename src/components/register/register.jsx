@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import styles from './register.module.css';
 import logo from '../images/logo.svg';
 import { useHistory, Link } from 'react-router-dom';
 
@@ -63,62 +62,70 @@ const Register = ({ authService }) => {
   };
 
   return (
-    <section className={styles.registerSection}>
-      <img className={styles.logo} src={logo} alt='logo' />
-      <span className={styles.registerTitle}>Register</span>
-      {warning && <div className={styles.warning}>{warning}</div>}
-      <form className={styles.form} ref={formRef}>
-        <div className={styles.customField}>
-          <label className={styles.label}>Name</label>
-          <input
-            ref={nameRef}
-            className={styles.input}
-            type='text'
-            name='name'
-            placeholder='Enter name'
-          />
+    <div className='w-full h-screen flex justify-center items-center'>
+      <section className='flex flex-col items-center w-[28rem] rounded-xl bg-white text-center py-5 px-8 drop-shadow-md'>
+        <img className='w-[5rem] mb-5' src={logo} alt='logo' />
+        <span className='text-3xl font-extrabold'>Register</span>
+        {warning && <div className='text-red-600 mt-3'>{warning}</div>}
+        <form
+          className='space-y-5 w-full m-5 flex flex-col text-left'
+          ref={formRef}
+        >
+          <div className='flex flex-col space-y-2'>
+            <label className='font-bold'>Name</label>
+            <input
+              ref={nameRef}
+              className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
+              type='text'
+              name='name'
+              placeholder='Enter name'
+            />
+          </div>
+          <div className='flex flex-col space-y-2'>
+            <label className='font-bold'>Email</label>
+            <input
+              ref={emailRef}
+              className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
+              type='text'
+              name='email'
+              placeholder='Enter email'
+            />
+          </div>
+          <div className='flex flex-col space-y-2'>
+            <label className='font-bold'>Password</label>
+            <input
+              ref={passwordRef}
+              className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
+              type='password'
+              name='name'
+              placeholder='Enter password'
+            />
+          </div>
+          <div className='flex flex-col space-y-2'>
+            <label className='font-bold'>Confirm password</label>
+            <input
+              ref={confirmPasswordRef}
+              className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
+              type='password'
+              name='name'
+              placeholder='Enter password'
+            />
+          </div>
+          <button
+            className='w-full py-3 border-[1px] border-[#FBBB71] rounded-md bg-[#FBBB71] font-bold  shadow-lg shadow-[#ffdfb8]'
+            onClick={onRegister}
+          >
+            Register
+          </button>
+        </form>
+        <div className='text-center text-gray-400 space-x-2'>
+          <span>Have account?</span>
+          <Link to='/' className='text-gray-900'>
+            Log In
+          </Link>
         </div>
-        <div className={styles.customField}>
-          <label className={styles.label}>Email</label>
-          <input
-            ref={emailRef}
-            className={styles.input}
-            type='text'
-            name='email'
-            placeholder='Enter email'
-          />
-        </div>
-        <div className={styles.customField}>
-          <label className={styles.label}>Password</label>
-          <input
-            ref={passwordRef}
-            className={styles.input}
-            type='password'
-            name='name'
-            placeholder='Enter password'
-          />
-        </div>
-        <div className={styles.customField}>
-          <label className={styles.label}>Confirm password</label>
-          <input
-            ref={confirmPasswordRef}
-            className={styles.input}
-            type='password'
-            name='name'
-            placeholder='Enter password'
-          />
-        </div>
-        <button className={styles.loginBtn} onClick={onRegister}>
-          Register
-        </button>
-      </form>
-      <div className={styles.logIn}>
-        Have account?
-        <Link to='/' className={styles.toLogIn}>
-          Log In
-        </Link>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

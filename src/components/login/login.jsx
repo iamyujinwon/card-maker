@@ -44,7 +44,7 @@ const Login = ({ authService }) => {
     <div className='w-full h-screen flex justify-center items-center'>
       <section className='flex flex-col items-center w-[28rem] rounded-xl bg-white text-center py-5 px-8 drop-shadow-md'>
         <img className='w-[5rem] mb-5' src={logo} alt='logo' />
-        <span className='text-2xl font-extrabold'>Log In</span>
+        <span className='text-3xl font-extrabold'>Log In</span>
         <ul className='mt-7 w-full flex flex-col p-0'>
           <li className=''>
             <button

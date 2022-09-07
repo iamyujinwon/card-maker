@@ -6,7 +6,7 @@ import Register from './components/register/register';
 
 function App({ FileInput, authService, cardRepository }) {
   return (
-    <div className='font-poppins'>
+    <div className='font-poppins bg-[#f3f0e8]'>
       <Switch>
         <Route exact path='/'>
           <Login authService={authService} />
