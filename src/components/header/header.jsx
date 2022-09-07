@@ -1,5 +1,4 @@
 import React, { memo, useState } from 'react';
-import styles from './header.module.css';
 import logo from '../images/logo.svg';
 import { FiLogOut } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
@@ -20,19 +19,34 @@ const Header = memo(({ onLogout, currentUserName }) => {
   };
 
   return (
-    <section className={styles.header}>
-      <img className={styles.logo} src={logo} alt='logo' onClick={goToCards} />
-      <button className={styles.profile} onClick={onClick}>
-        <div className={styles.displayName}>{currentUserName}</div>
-        <div className={styles.firstLetter}>{firstLetter}</div>
+    <section className='fixed top-0 left-0 bg-white w-full flex px-5 py-3 justify-between items-center z-20 border-b-[1px] boder-b-gray-500 md:px-24'>
+      <img
+        className='w-[5rem] cursor-pointer'
+        src={logo}
+        alt='logo'
+        onClick={goToCards}
+      />
+      <button
+        className='space-x-2 flex items-center px-4 py-2 rounded-full font-bold cursor-pointer border-none hover:bg-gray-100'
+        onClick={onClick}
+      >
+        <div>{currentUserName}</div>
+        <div className='bg-amber-500 flex justify-center items-center w-8 h-8 rounded-full text-white'>
+          {firstLetter}
+        </div>
       </button>
       {showDropDown && (
-        <section className={styles.popUp}>
-          <div className={styles.logOut} onClick={onLogout}>
+        <section className='absolute top-[110%] right-7 bg-white rounded-lg border-none drop-shadow-2xl overfol'>
+          <div
+            className='flex items-center justify-center space-x-2 py-6 px-8 hover:bg-amber-50'
+            onClick={onLogout}
+          >
             <FiLogOut />
             <span>Log out</span>
           </div>
-          <div className={styles.owner}>by Yujin Won</div>
+          <div className='text-center border-t-[1px] border-t-gray-200 py-3 text-sm'>
+            by Yujin Won
+          </div>
         </section>
       )}
     </section>
