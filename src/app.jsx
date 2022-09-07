@@ -1,5 +1,4 @@
 import { Switch, Route } from 'react-router-dom';
-import styles from './app.module.css';
 import Cards from './components/cards/cards';
 import Login from './components/login/login';
 import NotFound from './components/not_found/notFound';
@@ -7,7 +6,7 @@ import Register from './components/register/register';
 
 function App({ FileInput, authService, cardRepository }) {
   return (
-    <div className={styles.app}>
+    <div className='font-poppins'>
       <Switch>
         <Route exact path='/'>
           <Login authService={authService} />

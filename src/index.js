@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.module.css';
+import './index.css';
 import App from './app';
 import AuthService from './service/auth_service';
 import ImageUploader from './service/image_uploader';

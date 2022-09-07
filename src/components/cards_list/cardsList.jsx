@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import styles from './cardsList.module.css';
+import React from 'react';
 import { RiAddCircleFill } from 'react-icons/ri';
 import Card from '../card/card';
 import { useHistory } from 'react-router-dom';
@@ -14,21 +13,21 @@ const CardsList = ({ userId, cards, deleteCard }) => {
 
   return (
     <>
-      <section className={styles.cards}>
-        <section className={styles.section}>
-          <div className={styles.title}>My Cards</div>
-          <div className={styles.addBtn} onClick={goToCardNew}>
-            <div className={styles.addMsg}>Add Card</div>
+      <section className=''>
+        <section className=''>
+          <div className=''>My Cards</div>
+          <div className='' onClick={goToCardNew}>
+            <div className=''>Add Card</div>
             <RiAddCircleFill />
           </div>
         </section>
-        <div className={styles.collection}>
+        <div className=''>
           {Object.keys(cards).length > 0 ? (
             Object.keys(cards).map((key) => (
               <Card key={key} card={cards[key]} deleteCard={deleteCard} />
             ))
           ) : (
-            <div className={styles.noCard}>No cards</div>
+            <div className=''>No cards</div>
           )}
         </div>
       </section>
