@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Business Card Maker App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A `web app` using `React` to enable users to design business cards and manage them in personal account
 
-## Available Scripts
+## Demo of this app:
+![image 1 (2)](https://user-images.githubusercontent.com/65494027/188951550-a7c101f3-74a9-4ce7-bc0f-fd763dde939a.png)
 
-In the project directory, you can run:
+## What is this app about?
 
-### `yarn start`
+- This app helps users to create business cards unlimitedly and manage(generate, edit, and delete) them in personal account.
+- This app allows users to customize the color of cards using `React color picker`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What is the purpose of this app?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Understanding how `nested routing` works in web application
+- Handling authentication by utilizing `Firebase Authentication`
+- Applying the fundametal concepts of `React` to my application
 
-### `yarn test`
+## What technologies were used?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js (create-react-app)
+- Firebase Authentication and Firebase Realtime Database
+- Cloudinary (managing uploaded images)
 
-### `yarn build`
+#### Styling:
+- PostCSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Routing:
+- react-router
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### UI/UX design tool:
+- Figma
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What functions does this app have?
 
-### `yarn eject`
+1. Login and Log out
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Register
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Managing cards
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Create new cards
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Edit cards
 
-## Learn More
+- Delete cards
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Picking card's color
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## What did I learn from this app?
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Nested Routing
+- The most difficult task in this application was nested routing.
