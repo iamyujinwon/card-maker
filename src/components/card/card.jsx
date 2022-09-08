@@ -16,7 +16,7 @@ const Card = memo(({ card, deleteCard }) => {
 
   return (
     <li
-      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300'
+      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300 ease-in-out delay-50 hover:-translate-y-2'
       style={{ backgroundColor: theme }}
     >
       <section className='absolute flex flex-col justify-center top-0 right-0 text-3xl bg-[black] h-full z-10 p-2 rounded-tr-lg rounded-br-lg opacity-0 transition duration-300 hover:opacity-100'>

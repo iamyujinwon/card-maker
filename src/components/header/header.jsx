@@ -36,9 +36,9 @@ const Header = memo(({ onLogout, currentUserName }) => {
         </div>
       </button>
       {showDropDown && (
-        <section className='absolute top-[110%] right-7 md:right-24 bg-white rounded-lg border-none drop-shadow-2xl overfol'>
+        <section className='absolute top-[110%] right-7 md:right-12 bg-white rounded-lg border-none drop-shadow-2xl overflow-hidden'>
           <div
-            className='flex items-center justify-center space-x-2 py-6 px-8 hover:bg-amber-50'
+            className='flex items-center justify-center space-x-2 py-6 px-8 hover:bg-gray-100'
             onClick={onLogout}
           >
             <FiLogOut />

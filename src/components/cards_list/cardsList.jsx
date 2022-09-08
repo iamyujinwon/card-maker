@@ -19,7 +19,7 @@ const CardsList = ({ userId, cards, deleteCard }) => {
             My Cards
           </div>
           <div
-            className='text-sm sm:text-base space-x-2 flex items-center bg-[black] text-white py-2 px-6 rounded-full cursor-pointer'
+            className='text-sm sm:text-base space-x-2 flex items-center bg-[black] text-white py-2 px-6 rounded-full cursor-pointer hover:bg-gray-900'
             onClick={goToCardNew}
           >
             <div>Add Card</div>

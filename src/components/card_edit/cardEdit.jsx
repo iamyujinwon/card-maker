@@ -20,7 +20,7 @@ const CardEdit = ({ FileInput, updateCard, deleteCard, cards }) => {
 
   return (
     <div className='mt-20 xl:flex'>
-      <div className='p-5 sm:py-5 sm:px-10 bg-white flex flex-col space-y-8 xl:space-y-0 xl:w-1/2 xl:h-full xl:fixed xl:flex-row'>
+      <div className='p-5 border-b sm:py-5 sm:px-10 bg-white flex flex-col space-y-8 xl:space-y-0 xl:w-1/2 xl:h-full xl:fixed xl:flex-row xl:border-b-none xl:border-r'>
         <section className='flex flex-col space-y-8'>
           <Link to='/cards' className='flex items-center space-x-1'>
             <IoIosArrowBack />

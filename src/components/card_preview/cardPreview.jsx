@@ -10,7 +10,7 @@ const CardPreview = memo(({ card, themeColor }) => {
 
   return (
     <li
-      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300'
+      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300 ease-in-out delay-50 hover:-translate-y-2'
       style={{
         backgroundColor:
           theme === themeColor

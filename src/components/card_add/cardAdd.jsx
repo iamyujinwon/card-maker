@@ -6,7 +6,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 const CardAdd = ({ FileInput, addCard }) => {
   return (
     <div className='mt-20 flex flex-col'>
-      <div className='p-5 sm:py-5 sm:px-10 bg-white space-y-8 xl:space-y-0 xl:w-1/3 xl:h-full xl:fixed'>
+      <div className='p-5 border-b sm:py-5 sm:px-10 bg-white space-y-8 xl:space-y-0 xl:w-1/3 xl:h-full xl:fixed xl:border-b-none xl:border-r'>
         <section className='flex flex-col space-y-8'>
           <Link to='/cards' className='flex items-center space-x-1'>
             <IoIosArrowBack />
