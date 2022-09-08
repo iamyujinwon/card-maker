@@ -17,13 +17,9 @@ const CardEdit = ({ FileInput, updateCard, deleteCard, cards }) => {
     setThemeColor(color.hex);
   };
 
-  const closePicker = () => {
-    setShowPalette(!showPalette);
-  };
-
   return (
-    <section className={styles.section}>
-      <div className={styles.editForm}>
+    <section className='mt-20 py-10 flex flex-col-reverse lg:flex-row'>
+      <div>
         {Object.keys(cards).map(
           (key) =>
             key === cardId && (
@@ -33,15 +29,13 @@ const CardEdit = ({ FileInput, updateCard, deleteCard, cards }) => {
                 card={cards[cardId]}
                 updateCard={updateCard}
                 themeColor={themeColor}
-                showPalette={showPalette}
                 showColorPalette={showColorPalette}
                 handleChange={handleChange}
-                closePicker={closePicker}
               />
             )
         )}
       </div>
-      <div className={styles.preview}>
+      <div>
         <Preview
           key={cardId}
           cards={cards}
