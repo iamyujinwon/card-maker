@@ -1,7 +1,6 @@
 import React, { memo, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
-import styles from './cardAddForm.module.css';
 import { CirclePicker } from 'react-color';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
@@ -12,7 +11,7 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const titleRef = useRef();
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
-  const [themeColor, setThemeColor] = useState('#ffffff');
+  const [themeColor, setThemeColor] = useState('#cddc39');
   const [showPalette, setShowPalette] = useState(false);
 
   const history = useHistory();
