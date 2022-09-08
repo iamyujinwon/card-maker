@@ -1,6 +1,5 @@
 import React from 'react';
 import { memo } from 'react';
-import styles from './cardPreview.module.css';
 import character from '../images/default_logo.png';
 
 const DEFAULT_IMAGE = character;
@@ -11,7 +10,7 @@ const CardPreview = memo(({ card, themeColor }) => {
 
   return (
     <li
-      className={styles.card}
+      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300'
       style={{
         backgroundColor:
           theme === themeColor
@@ -19,14 +18,21 @@ const CardPreview = memo(({ card, themeColor }) => {
             : themeColor || (themeColor === undefined && theme),
       }}
     >
-      <img className={styles.avatar} src={fileUrl} alt='profile' />
-      <div className={styles.info}>
-        <h1 className={styles.name}>{name}</h1>
-        <p className={styles.company}>{company}</p>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.email}>{email}</p>
-        <p className={styles.message}>{message}</p>
-      </div>
+      <section className='flex items-center space-x-6'>
+        <img
+          className='w-28 h-28 sm:w-32 sm:h-32 object-cover rounded-full'
+          src={fileUrl}
+          alt='profile'
+        />
+        <div className='space-y-2'>
+          <h1 className='sm:text-xl font-bold'>{name}</h1>
+          <p className='text-sm sm:text-base'>{company}</p>
+          <hr className='w-48 sm:w-52 border-gray-900 border-b rounded-full'></hr>
+          <p className='text-sm sm:text-base'>{title}</p>
+          <p className='text-sm sm:text-base'>{email}</p>
+          <p className='text-sm sm:text-base'>{message}</p>
+        </div>
+      </section>
     </li>
   );
 });

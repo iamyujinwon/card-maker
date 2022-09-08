@@ -19,7 +19,7 @@ const Header = memo(({ onLogout, currentUserName }) => {
   };
 
   return (
-    <section className='fixed top-0 left-0 bg-white w-full flex px-5 py-3 justify-between items-center z-20 border-b-[1px] boder-b-gray-500 md:px-24'>
+    <section className='fixed top-0 left-0 bg-white w-full flex px-5 py-3 justify-between items-center z-20 border-b-[1px] boder-b-gray-500 md:px-10'>
       <img
         className='w-[5rem] cursor-pointer'
         src={logo}

@@ -55,9 +55,7 @@ const CardEditForm = ({
   };
 
   return (
-    <form className='mb-20 flex flex-col space-y-5'>
-      {/* <div className=''>Edit Card</div> */}
-
+    <form className='mb-12 flex flex-col space-y-5'>
       <div className='flex flex-col space-y-2'>
         <label className='px-10 text-lg font-bold'>Name</label>
         <input
@@ -116,7 +114,7 @@ const CardEditForm = ({
             }}
           />
         </div>
-        <div className='flex justify-center py-3'>
+        <div className='flex justify-center pt-3'>
           <CirclePicker
             color={themeColor}
             onChange={handleChange}

@@ -20,7 +20,7 @@ const ImageFileInput = memo(({ imageUploader, name, onFileChange }) => {
   };
 
   return (
-    <div className='mt-3 flex items-center space-x-3'>
+    <div className='text-sm sm:text-base mt-3 flex items-center space-x-3'>
       {!loading && (
         <button
           className='space-x-2 flex items-center bg-[black] text-white py-2 px-4 rounded-lg cursor-pointer'
