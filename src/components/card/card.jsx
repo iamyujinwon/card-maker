@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
-import styles from './card.module.css';
 import character from '../images/default_logo.png';
 import { MdDelete, MdEdit, MdDownload } from 'react-icons/md';
-import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 const DEFAULT_IMAGE = character;
 
@@ -15,29 +14,43 @@ const Card = memo(({ card, deleteCard }) => {
     deleteCard(card);
   };
 
-  console.log(theme);
-
   return (
-    <li className={styles.card} style={{ backgroundColor: theme }}>
-      <section className={styles.icons}>
-        <div className={styles.trash} onClick={onDelete}>
+    <li
+      className='w-[26rem] h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300'
+      style={{ backgroundColor: theme }}
+    >
+      <section className='absolute flex flex-col justify-center top-0 right-0 text-3xl bg-[black] h-full z-10 p-2 rounded-tr-lg rounded-br-lg opacity-0 transition duration-300 hover:opacity-100'>
+        <div
+          className='w-16 h-16 flex justify-center items-center cursor-pointer text-white transition duration-200 hover:text-[#FEC583]'
+          onClick={onDelete}
+        >
           <MdDelete />
         </div>
-        <Link to={`${url}/${card.id}`} className={styles.pencil}>
+        <Link
+          to={`${url}/${card.id}`}
+          className='w-16 h-16 flex justify-center items-center cursor-pointer text-white transition duration-200 hover:text-[#FEC583]'
+        >
           <MdEdit />
         </Link>
-        <div className={styles.download}>
+        <div className='w-16 h-16 flex justify-center items-center cursor-pointer text-white transition duration-200 hover:text-[#FEC583]'>
           <MdDownload />
         </div>
       </section>
-      <img className={styles.avatar} src={fileUrl} alt='profile' />
-      <div className={styles.info}>
-        <h1 className={styles.name}>{name}</h1>
-        <p className={styles.company}>{company}</p>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.email}>{email}</p>
-        <p className={styles.message}>{message}</p>
-      </div>
+      <section className='flex items-center space-x-6'>
+        <img
+          className='w-32 h-32 object-cover rounded-full'
+          src={fileUrl}
+          alt='profile'
+        />
+        <div className='space-y-2'>
+          <h1 className='text-xl font-bold'>{name}</h1>
+          <p>{company}</p>
+          <hr className='w-52 border-gray-900 border-b rounded-full'></hr>
+          <p>{title}</p>
+          <p>{email}</p>
+          <p>{message}</p>
+        </div>
+      </section>
     </li>
   );
 });

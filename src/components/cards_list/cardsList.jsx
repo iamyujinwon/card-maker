@@ -24,7 +24,7 @@ const CardsList = ({ userId, cards, deleteCard }) => {
             <RiAddCircleFill />
           </div>
         </section>
-        <div className='bg-white py-10 px-10 grid grid-cols-1 lg:px-32 lg:grid-cols-2 lg:gap-4 2xl:gap-6 2xl:grid-cols-3'>
+        <div className='bg-white py-10 px-10 grid grid-cols-1 lg:px-32 2xl:px-44 lg:grid-cols-2 lg:gap-4 2xl:gap-6 2xl:grid-cols-3'>
           {Object.keys(cards).length > 0 ? (
             Object.keys(cards).map((key) => (
               <Card key={key} card={cards[key]} deleteCard={deleteCard} />
