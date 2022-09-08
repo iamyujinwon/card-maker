@@ -2,8 +2,7 @@ import React, { memo, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../button/button';
 import styles from './cardAddForm.module.css';
-import { RiArrowGoBackFill } from 'react-icons/ri';
-import { ChromePicker } from 'react-color';
+import { CirclePicker } from 'react-color';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
   const formRef = useRef();
@@ -64,91 +63,77 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   };
 
   return (
-    <form ref={formRef} className={styles.form}>
-      <button className={styles.backBtn} onClick={goToCards}>
-        <RiArrowGoBackFill />
-      </button>
-      <div className={styles.title}>New Card</div>
-      <section className={styles.section}>
-        <div className={styles.addMarginRight}>
-          <label className={styles.label}>Name</label>
-          <input
-            ref={nameRef}
-            className={styles.input}
-            type='text'
-            name='name'
-            placeholder='Name'
+    <form ref={formRef} className='mb-12 flex flex-col space-y-5'>
+      <div className='flex flex-col space-y-2'>
+        <label className='px-10 text-lg font-bold'>Name</label>
+        <input
+          ref={nameRef}
+          className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
+          type='text'
+          name='name'
+          placeholder='Name'
+        />
+      </div>
+      <div className='flex flex-col space-y-2'>
+        <label className='px-10 text-lg font-bold'>Email</label>
+        <input
+          ref={emailRef}
+          className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
+          type='text'
+          name='email'
+          placeholder='Email'
+        />
+      </div>
+      <div className='flex flex-col space-y-2'>
+        <label className='px-10 text-lg font-bold'>Company</label>
+        <input
+          ref={companyRef}
+          className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
+          type='text'
+          name='company'
+          placeholder='Company'
+        />
+      </div>
+      <div className='flex flex-col space-y-2'>
+        <label className='px-10 text-lg font-bold'>Title</label>
+        <input
+          ref={titleRef}
+          className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
+          type='text'
+          name='title'
+          placeholder='Title'
+        />
+      </div>
+      <div className='flex flex-col space-y-2'>
+        <label className='px-10 text-lg font-bold'>Theme</label>
+        <div
+          className='flex justify-between items-center mx-10 px-5 py-3 rounded-lg border border-gray-300 bg-white'
+          onClick={showColorPalette}
+        >
+          {themeColor ? themeColor : 'Click to pick theme color'}
+          <span
+            className='w-7 h-7 rounded-full'
+            style={{ backgroundColor: themeColor }}
           />
         </div>
-        <div>
-          <label className={styles.label}>Email</label>
-          <input
-            ref={emailRef}
-            className={styles.input}
-            type='text'
-            name='email'
-            placeholder='Email'
+        <div className='flex justify-center pt-3'>
+          <CirclePicker
+            color={themeColor}
+            onChange={handleChange}
+            input={themeColor}
           />
         </div>
-      </section>
-      <section className={styles.section}>
-        <div className={styles.addMarginRight}>
-          <label className={styles.label}>Company</label>
-          <input
-            ref={companyRef}
-            className={styles.input}
-            type='text'
-            name='company'
-            placeholder='Company'
-          />
-        </div>
-        <div className={styles.addMarginRight}>
-          <label className={styles.label}>Title</label>
-          <input
-            ref={titleRef}
-            className={styles.input}
-            type='text'
-            name='title'
-            placeholder='Title'
-          />
-        </div>
-        <div>
-          <label className={styles.label}>Theme</label>
-          <div className={styles.theme} onClick={showColorPalette}>
-            {themeColor ? themeColor : 'Click to pick theme color'}
-            <span
-              className={styles.color}
-              style={{ backgroundColor: themeColor }}
-            />
-          </div>
-          {showPalette && (
-            <section className={styles.colorSection}>
-              <div className={styles.colorPicker}>
-                <ChromePicker
-                  color={themeColor}
-                  onChange={handleChange}
-                  input={themeColor}
-                />
-                <button className={styles.colorCloseBtn} onClick={closePicker}>
-                  Close
-                </button>
-              </div>
-            </section>
-          )}
-        </div>
-      </section>
-      <section className={styles.section}>
-        <div>
-          <label className={styles.label}>Message</label>
-          <textarea
-            ref={messageRef}
-            className={styles.textarea}
-            name='message'
-            placeholder='Message'
-          ></textarea>
-        </div>
-      </section>
-      <div className={styles.buttons}>
+      </div>
+      <div className='flex flex-col space-y-2'>
+        <label className='px-10 text-lg font-bold'>Message</label>
+        <textarea
+          ref={messageRef}
+          className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
+          name='message'
+          placeholder='Message'
+        ></textarea>
+      </div>
+      <div className='flex flex-col mx-10 space-y-8'>
         <FileInput name={file.fileName} onFileChange={onFileChange} />
         <Button name='Add' onClick={onSubmit} />
       </div>
