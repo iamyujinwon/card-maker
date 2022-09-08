@@ -16,7 +16,7 @@ const Card = memo(({ card, deleteCard }) => {
 
   return (
     <li
-      className='w-[26rem] h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300'
+      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300'
       style={{ backgroundColor: theme }}
     >
       <section className='absolute flex flex-col justify-center top-0 right-0 text-3xl bg-[black] h-full z-10 p-2 rounded-tr-lg rounded-br-lg opacity-0 transition duration-300 hover:opacity-100'>
@@ -38,17 +38,17 @@ const Card = memo(({ card, deleteCard }) => {
       </section>
       <section className='flex items-center space-x-6'>
         <img
-          className='w-32 h-32 object-cover rounded-full'
+          className='w-28 h-28 sm:w-32 sm:h-32 object-cover rounded-full'
           src={fileUrl}
           alt='profile'
         />
         <div className='space-y-2'>
-          <h1 className='text-xl font-bold'>{name}</h1>
-          <p>{company}</p>
-          <hr className='w-52 border-gray-900 border-b rounded-full'></hr>
-          <p>{title}</p>
-          <p>{email}</p>
-          <p>{message}</p>
+          <h1 className='sm:text-xl font-bold'>{name}</h1>
+          <p className='text-sm sm:text-base'>{company}</p>
+          <hr className='w-48 sm:w-52 border-gray-900 border-b rounded-full'></hr>
+          <p className='text-sm sm:text-base'>{title}</p>
+          <p className='text-sm sm:text-base'>{email}</p>
+          <p className='text-sm sm:text-base'>{message}</p>
         </div>
       </section>
     </li>
