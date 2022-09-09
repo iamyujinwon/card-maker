@@ -1,22 +1,16 @@
-import React from 'react';
-import { memo } from 'react';
+import React, { memo } from 'react';
 import character from '../images/default_logo.png';
 
 const DEFAULT_IMAGE = character;
 
-const CardPreview = memo(({ card, themeColor }) => {
+const CardPreview = memo(({ card }) => {
   const { name, company, title, email, message, theme, fileURL } = card;
   const fileUrl = fileURL || DEFAULT_IMAGE;
 
   return (
     <li
-      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 drop-shadow-xl transition duration-300 ease-in-out delay-50 hover:-translate-y-2'
-      style={{
-        backgroundColor:
-          theme === themeColor
-            ? theme
-            : themeColor || (themeColor === undefined && theme),
-      }}
+      className='w-[22rem] h-52 sm:w-[26rem] sm:h-60 relative flex items-center rounded-lg mb-5 py-8 px-6 shadow-xl transition duration-300 ease-in-out delay-50 hover:-translate-y-2'
+      style={{ backgroundColor: theme }}
     >
       <section className='flex items-center space-x-6'>
         <img

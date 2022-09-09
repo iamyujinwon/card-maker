@@ -65,7 +65,7 @@ const Cards = ({ FileInput, authService, cardRepository }) => {
           <CardsList cards={cards} deleteCard={deleteCard} />
         </Route>
         <Route path={`${path}/new`}>
-          <CardAdd FileInput={FileInput} addCard={createOrUpdateCard} />
+          <CardAdd FileInput={FileInput} updateCard={createOrUpdateCard} />
         </Route>
         <Route path={`${path}/:cardId`}>
           <CardEdit

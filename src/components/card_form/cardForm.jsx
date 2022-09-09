@@ -5,9 +5,8 @@ import { IoIosArrowBack } from 'react-icons/io';
 import Button from '../button/button';
 import TempPreview from '../temp_preview/tempPreview';
 
-const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
+const CardForm = ({ FileInput, title, cards, cardId, updateCard }) => {
   const history = useHistory();
-
   const [tempCard, setTempCard] = useState('');
 
   useEffect(() => {
@@ -16,7 +15,7 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
         ...cards[cardId],
       });
     } else {
-      setTempCard({});
+      setTempCard({ id: cardId, theme: '#cddc39' });
     }
   }, [cards, cardId]);
 
@@ -60,20 +59,16 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
 
   return (
     <div className='mt-20 xl:flex'>
-      <div className='p-5 border-b sm:py-5 sm:px-10 bg-white flex flex-col space-y-8 xl:space-y-0 xl:w-1/2 xl:h-full xl:fixed xl:flex-row xl:border-b-none xl:border-r'>
-        <section className='flex flex-col space-y-8'>
-          <Link to='/cards' className='flex items-center space-x-1'>
+      <div className='p-5 border-b sm:py-5 sm:px-10 bg-white flex flex-col space-y-8 xl:space-y-0 xl:w-1/2 xl:h-full xl:fixed xl:border-b-none xl:border-r'>
+        <section className='flex flex-col space-y-8 xl:basis-1/3'>
+          <Link to='/cards' className='flex items-center space-x-1 w-[7rem]'>
             <IoIosArrowBack />
             <span className='font-bold'>My Cards</span>
           </Link>
-          <span className='text-4xl font-bold'>Edit Card</span>
+          <span className='text-4xl font-bold'>{title}</span>
         </section>
-        <div className='mb-5 xl:mb-0 xl:px-3 xl:flex xl:justify-center xl:items-center '>
-          <TempPreview
-            key={cardId}
-            card={tempCard}
-            themeColor={tempCard.theme}
-          />
+        <div className='mb-5 xl:mb-0 xl:px-3 xl:flex xl:justify-center xl:items-center'>
+          <TempPreview key={cardId} card={tempCard} />
         </div>
       </div>
       <section className='py-10 xl:w-1/2 xl:absolute xl:top-20 xl:left-1/2 xl:bg-[#F2F0E8] xl:px-40 xl:py-20'>
@@ -85,6 +80,7 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
                 className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
                 type='text'
                 name='name'
+                placeholder='Name'
                 value={tempCard.name}
                 onChange={onChange}
               />
@@ -95,6 +91,7 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
                 className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
                 type='text'
                 name='email'
+                placeholder='Email'
                 value={tempCard.email}
                 onChange={onChange}
               />
@@ -105,6 +102,7 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
                 className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
                 type='text'
                 name='company'
+                placeholder='Company'
                 value={tempCard.company}
                 onChange={onChange}
               />
@@ -115,6 +113,7 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
                 className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
                 type='text'
                 name='title'
+                placeholder='Title'
                 value={tempCard.title}
                 onChange={onChange}
               />
@@ -143,6 +142,7 @@ const CardForm = ({ FileInput, cards, cardId, updateCard }) => {
               <textarea
                 className='mx-10 px-5 py-3 rounded-lg border border-gray-300'
                 name='message'
+                placeholder='Message'
                 value={tempCard.message}
                 onChange={onChange}
               ></textarea>

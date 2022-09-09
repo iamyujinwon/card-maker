@@ -4,13 +4,14 @@ import CardForm from '../card_form/cardForm';
 
 const CardEdit = ({ FileInput, updateCard, cards }) => {
   const { cardId } = useParams();
-  const editMode = true;
+  const title = 'Edit Card';
 
   return (
     <CardForm
       key={cardId}
       FileInput={FileInput}
-      cards={editMode ? cards : ''}
+      title={title}
+      cards={cards}
       cardId={cardId}
       updateCard={updateCard}
     />
