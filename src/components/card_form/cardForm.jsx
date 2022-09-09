@@ -68,7 +68,7 @@ const CardForm = ({ FileInput, title, cards, cardId, updateCard }) => {
           <span className='text-4xl font-bold'>{title}</span>
         </section>
         <div className='mb-5 xl:mb-0 xl:px-3 xl:flex xl:justify-center xl:items-center'>
-          <Preview key={cardId} card={tempCard} />
+          <Preview card={tempCard} />
         </div>
       </div>
       <section className='py-10 xl:w-1/2 xl:absolute xl:top-20 xl:left-1/2 xl:bg-[#F2F0E8] xl:px-40 xl:py-20'>

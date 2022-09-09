@@ -1,6 +1,6 @@
 import React from 'react';
-import { RiAddCircleFill } from 'react-icons/ri';
 import Card from '../card/card';
+import { RiAddCircleFill } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
 
 const CardsList = ({ cards, deleteCard }) => {
