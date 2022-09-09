@@ -1,7 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '../button/button';
 import { CirclePicker } from 'react-color';
+import Button from '../button/button';
 
 const CardAddForm = memo(({ FileInput, onAdd }) => {
   const formRef = useRef();
@@ -27,10 +27,6 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
 
   const handleChange = (color) => {
     setThemeColor(color.hex);
-  };
-
-  const closePicker = () => {
-    setShowPalette(!showPalette);
   };
 
   const onFileChange = (file) => {

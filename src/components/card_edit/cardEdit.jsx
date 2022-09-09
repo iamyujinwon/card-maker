@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { IoIosArrowBack } from 'react-icons/io';
 import CardEditForm from '../card_edit_form/cardEditForm';
 import Preview from '../preview/preview';
-import styles from './cardEdit.module.css';
-import { IoIosArrowBack } from 'react-icons/io';
 
 const CardEdit = ({ FileInput, updateCard, deleteCard, cards }) => {
   const { cardId } = useParams();

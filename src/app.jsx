@@ -21,6 +21,9 @@ function App({ FileInput, authService, cardRepository }) {
             cardRepository={cardRepository}
           />
         </Route>
+        <Route path='*'>
+          <NotFound />
+        </Route>
       </Switch>
     </div>
   );

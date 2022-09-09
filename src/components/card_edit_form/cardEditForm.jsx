@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '../button/button';
 import { CirclePicker } from 'react-color';
+import Button from '../button/button';
 
 const CardEditForm = ({
   FileInput,
@@ -103,7 +103,7 @@ const CardEditForm = ({
           name='theme'
           onClick={showColorPalette}
         >
-          {themeColor == undefined ? theme : themeColor}
+          {themeColor === undefined ? theme : themeColor}
           <span
             className='w-7 h-7 rounded-full'
             style={{

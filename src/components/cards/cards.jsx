@@ -7,7 +7,7 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 
 const Cards = ({ FileInput, authService, cardRepository }) => {
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
   const history = useHistory();
   const historyState = history?.location?.state;
   const [cards, setCards] = useState({});

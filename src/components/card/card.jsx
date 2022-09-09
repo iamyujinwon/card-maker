@@ -7,7 +7,7 @@ const DEFAULT_IMAGE = character;
 
 const Card = memo(({ card, deleteCard }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const { path, url } = useRouteMatch();
+  const { url } = useRouteMatch();
   const { name, company, title, email, message, theme, fileURL } = card;
   const fileUrl = fileURL || DEFAULT_IMAGE;
 

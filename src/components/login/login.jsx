@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import logo from '../images/logo.svg';
 import googleLogo from '../images/google_logo.png';
 import githubLogo from '../images/github_logo.png';
