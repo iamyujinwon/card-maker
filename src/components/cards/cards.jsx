@@ -62,7 +62,7 @@ const Cards = ({ FileInput, authService, cardRepository }) => {
       <Header onLogout={onLogout} currentUserName={currentUserName} />
       <Switch>
         <Route exact path={`${path}`}>
-          <CardsList userId={userId} cards={cards} deleteCard={deleteCard} />
+          <CardsList cards={cards} deleteCard={deleteCard} />
         </Route>
         <Route path={`${path}/new`}>
           <CardAdd FileInput={FileInput} addCard={createOrUpdateCard} />
@@ -71,7 +71,6 @@ const Cards = ({ FileInput, authService, cardRepository }) => {
           <CardEdit
             FileInput={FileInput}
             updateCard={createOrUpdateCard}
-            deleteCard={deleteCard}
             cards={cards}
           />
         </Route>

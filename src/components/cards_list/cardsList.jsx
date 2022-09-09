@@ -3,7 +3,7 @@ import { RiAddCircleFill } from 'react-icons/ri';
 import Card from '../card/card';
 import { useHistory } from 'react-router-dom';
 
-const CardsList = ({ userId, cards, deleteCard }) => {
+const CardsList = ({ cards, deleteCard }) => {
   const history = useHistory();
   const goToCardNew = () => {
     history.push({

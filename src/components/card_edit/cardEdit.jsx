@@ -4,7 +4,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import CardEditForm from '../card_edit_form/cardEditForm';
 import Preview from '../preview/preview';
 
-const CardEdit = ({ FileInput, updateCard, deleteCard, cards }) => {
+const CardEdit = ({ FileInput, updateCard, cards }) => {
   const { cardId } = useParams();
   const [themeColor, setThemeColor] = useState();
   const [showPalette, setShowPalette] = useState(false);
