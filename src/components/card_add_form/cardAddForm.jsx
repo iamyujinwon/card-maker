@@ -50,7 +50,6 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
       fileURL: file.fileURL || '',
     };
 
-    console.log(card);
     formRef.current.reset();
     setFile({ fileName: null, fileURL: null });
     card.name !== '' && onAdd(card);
