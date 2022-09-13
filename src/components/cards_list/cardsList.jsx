@@ -27,14 +27,14 @@ const CardsList = ({ cards, deleteCard }) => {
           </div>
         </section>
         <div className='bg-white py-10 flex flex-col justify-center items-center lg:px-32 2xl:px-44 lg:grid lg:grid-cols-2 lg:gap-4 2xl:gap-6 2xl:grid-cols-3'>
-          {Object.keys(cards).length > 0 ? (
-            Object.keys(cards).map((key) => (
-              <Card key={key} card={cards[key]} deleteCard={deleteCard} />
-            ))
-          ) : (
+          {Object.keys(cards).length === 0 ? (
             <div className='flex justify-center items-center text-lg'>
               No cards
             </div>
+          ) : (
+            Object.keys(cards).map((key) => (
+              <Card key={key} card={cards[key]} deleteCard={deleteCard} />
+            ))
           )}
         </div>
       </section>
