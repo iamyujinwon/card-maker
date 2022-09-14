@@ -97,7 +97,8 @@ const Register = ({ authService }) => {
               ref={passwordRef}
               className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
               type='password'
-              name='name'
+              name='password'
+              autoComplete='on'
               placeholder='Enter password'
             />
           </div>
@@ -107,7 +108,8 @@ const Register = ({ authService }) => {
               ref={confirmPasswordRef}
               className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
               type='password'
-              name='name'
+              name='password'
+              autoComplete='on'
               placeholder='Enter password'
             />
           </div>

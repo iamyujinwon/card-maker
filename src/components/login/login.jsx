@@ -1,13 +1,17 @@
 import React, { useRef } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { BsFillExclamationCircleFill } from 'react-icons/bs';
 import logo from '../images/logo.svg';
 import googleLogo from '../images/google_logo.png';
 import githubLogo from '../images/github_logo.png';
-import { useHistory, Link } from 'react-router-dom';
 
 const Login = ({ authService }) => {
   const formRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const [warningMsg, setWarningMsg] = useState('');
+  const [showWarningMsg, setShowWarningMsg] = useState(false);
 
   const history = useHistory();
   const goToCards = (userId) => {
@@ -30,7 +34,25 @@ const Login = ({ authService }) => {
 
     authService //
       .loginWithEmailAndPassword(email, password)
-      .then((data) => goToCards(data.user.uid));
+      .then((data) => goToCards(data.user.uid))
+      .catch((err) => {
+        setShowWarningMsg(true);
+
+        switch (err.code) {
+          case 'auth/invalid-email':
+            setWarningMsg('Invalid email');
+            break;
+          case 'auth/wrong-password':
+            setWarningMsg('Wrong password');
+            break;
+          case 'auth/user-not-found':
+            setWarningMsg('User not found');
+            break;
+          default:
+            setWarningMsg('Email or password not correct');
+            break;
+        }
+      });
   };
 
   // useEffect(() => {
@@ -74,6 +96,12 @@ const Login = ({ authService }) => {
           className='space-y-5 w-full m-5 flex flex-col text-left'
           ref={formRef}
         >
+          {showWarningMsg && (
+            <span className='flex items-center justify-center space-x-2 px-5 py-3 text-red-500 bg-red-100 rounded-sm'>
+              <BsFillExclamationCircleFill />
+              <div>{warningMsg}</div>
+            </span>
+          )}
           <div className='flex flex-col space-y-2'>
             <label className='font-bold'>Email</label>
             <input
