@@ -3,6 +3,14 @@ A `web app` using `React` to enable users to design business cards and manage th
 
 # Demo of this app:
 
+## Demo video
+
+| Demo of Create card page |
+|:--:|
+|<img alt="Screenshot at Sep 15 12-33-42" src="https://user-images.githubusercontent.com/65494027/190479047-41a42cec-7b04-4b38-8fc5-f1e827889da7.gif">|
+
+## Screenshots
+
 | Login page | Register page |
 |:--:|:--:|
 |<img width="1000" alt="Screenshot at Sep 15 12-33-42" src="https://user-images.githubusercontent.com/65494027/190462584-7692bf0d-38c2-445d-b42e-ac653021465b.png">|<img width="1000" alt="Screenshot at Sep 15 12-33-04" src="https://user-images.githubusercontent.com/65494027/190460767-28fc245b-e209-4348-8b5d-a13d0f123857.png">|
