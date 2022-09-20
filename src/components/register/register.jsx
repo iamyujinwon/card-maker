@@ -8,7 +8,8 @@ const Register = ({ authService }) => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const [warning, setWarning] = useState('');
+  const [warningMsg, setWarningMsg] = useState('');
+  const [showWarningMsg, setShowWarningMsg] = useState(false);
 
   const history = useHistory();
   const goToCards = (userId) => {
@@ -24,41 +25,34 @@ const Register = ({ authService }) => {
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    const confirmPassword = confirmPasswordRef.current.value;
 
-    if (
-      checkEmptyValue(email, password, confirmPassword) &&
-      checkPasswordLength(password) &&
-      checkPassowordsMatch(password, confirmPassword)
-    ) {
+    if (name === '') {
+      setShowWarningMsg(true);
+      setWarningMsg('Name should not be empty');
+    } else {
       authService //
         .register(email, password, name)
-        .then(() => goToCards());
-    }
-  };
+        .then(() => goToCards())
+        .catch((err) => {
+          console.log(err.code);
+          setShowWarningMsg(true);
 
-  const checkEmptyValue = (email, password, confirmPassword) => {
-    if (email === '' || password === '' || confirmPassword === '') {
-      setWarning('Empty field is not allowed');
-      return false;
+          switch (err.code) {
+            case 'auth/invalid-email':
+              setWarningMsg('Invalid email');
+              break;
+            case 'auth/wrong-password':
+              setWarningMsg('Wrong password');
+              break;
+            case 'auth/user-not-found':
+              setWarningMsg('User not found');
+              break;
+            default:
+              setWarningMsg('Email or password not correct');
+              break;
+          }
+        });
     }
-    return true;
-  };
-
-  const checkPasswordLength = (password) => {
-    if (password.length < 6) {
-      setWarning('Password should be at least 6 characters');
-      return false;
-    }
-    return true;
-  };
-
-  const checkPassowordsMatch = (password, confirmPassword) => {
-    if (password !== confirmPassword) {
-      setWarning('Passwords do not match');
-      return false;
-    }
-    return true;
   };
 
   return (
@@ -66,7 +60,9 @@ const Register = ({ authService }) => {
       <section className='flex flex-col items-center w-[28rem] rounded-xl bg-white text-center py-5 px-8 drop-shadow-md'>
         <img className='w-[5rem] mb-5' src={logo} alt='logo' />
         <span className='text-3xl font-extrabold'>Register</span>
-        {warning && <div className='text-red-600 mt-3'>{warning}</div>}
+        {showWarningMsg && (
+          <div className='text-red-600 mt-3'>{warningMsg}</div>
+        )}
         <form
           className='space-y-5 w-full m-5 flex flex-col text-left'
           ref={formRef}
@@ -95,17 +91,6 @@ const Register = ({ authService }) => {
             <label className='font-bold'>Password</label>
             <input
               ref={passwordRef}
-              className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
-              type='password'
-              name='password'
-              autoComplete='on'
-              placeholder='Enter password'
-            />
-          </div>
-          <div className='flex flex-col space-y-2'>
-            <label className='font-bold'>Confirm password</label>
-            <input
-              ref={confirmPasswordRef}
               className='p-3 bg-white border-[1px] border-gray-200 rounded-md'
               type='password'
               name='password'
