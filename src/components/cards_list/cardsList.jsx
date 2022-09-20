@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const CardsList = ({ cards, deleteCard }) => {
   const history = useHistory();
+
   const goToCardNew = () => {
     history.push({
       pathname: '/cards/new',

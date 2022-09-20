@@ -7,7 +7,6 @@ const Register = ({ authService }) => {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
   const [warningMsg, setWarningMsg] = useState('');
   const [showWarningMsg, setShowWarningMsg] = useState(false);
 
@@ -34,7 +33,6 @@ const Register = ({ authService }) => {
         .register(email, password, name)
         .then(() => goToCards())
         .catch((err) => {
-          console.log(err.code);
           setShowWarningMsg(true);
           switch (err.code) {
             case 'auth/invalid-email':

@@ -36,7 +36,6 @@ const Login = ({ authService }) => {
       .then((data) => goToCards(data.user.uid))
       .catch((err) => {
         setShowWarningMsg(true);
-        console.log(err.code);
         switch (err.code) {
           case 'auth/invalid-email':
             setWarningMsg('Please provide correct email.');
