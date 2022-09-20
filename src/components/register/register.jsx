@@ -28,7 +28,7 @@ const Register = ({ authService }) => {
 
     if (name === '') {
       setShowWarningMsg(true);
-      setWarningMsg('Name should not be empty');
+      setWarningMsg('Please provide your name.');
     } else {
       authService //
         .register(email, password, name)
@@ -36,19 +36,18 @@ const Register = ({ authService }) => {
         .catch((err) => {
           console.log(err.code);
           setShowWarningMsg(true);
-
           switch (err.code) {
             case 'auth/invalid-email':
-              setWarningMsg('Invalid email');
+              setWarningMsg('Please provide your email.');
               break;
-            case 'auth/wrong-password':
-              setWarningMsg('Wrong password');
+            case 'auth/internal-error':
+              setWarningMsg('Please provide correct email or password.');
               break;
-            case 'auth/user-not-found':
-              setWarningMsg('User not found');
+            case 'auth/weak-password':
+              setWarningMsg('Password should be at least 6 characters.');
               break;
-            default:
-              setWarningMsg('Email or password not correct');
+            case 'auth/email-already-in-use':
+              setWarningMsg('Email is already in use.');
               break;
           }
         });

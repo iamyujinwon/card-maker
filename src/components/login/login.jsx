@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { BsFillExclamationCircleFill } from 'react-icons/bs';
 import logo from '../images/logo.svg';
 import googleLogo from '../images/google_logo.png';
 import githubLogo from '../images/github_logo.png';
@@ -37,19 +36,19 @@ const Login = ({ authService }) => {
       .then((data) => goToCards(data.user.uid))
       .catch((err) => {
         setShowWarningMsg(true);
-
+        console.log(err.code);
         switch (err.code) {
           case 'auth/invalid-email':
-            setWarningMsg('Invalid email');
+            setWarningMsg('Please provide correct email.');
+            break;
+          case 'auth/internal-error':
+            setWarningMsg('Please provide correct email or password.');
             break;
           case 'auth/wrong-password':
-            setWarningMsg('Wrong password');
+            setWarningMsg('Please provide correct password.');
             break;
           case 'auth/user-not-found':
-            setWarningMsg('User not found');
-            break;
-          default:
-            setWarningMsg('Email or password not correct');
+            setWarningMsg('User cannot be found.');
             break;
         }
       });
@@ -97,10 +96,7 @@ const Login = ({ authService }) => {
           ref={formRef}
         >
           {showWarningMsg && (
-            <span className='flex items-center justify-center space-x-2 px-5 py-3 text-red-500 bg-red-100 rounded-sm'>
-              <BsFillExclamationCircleFill />
-              <div>{warningMsg}</div>
-            </span>
+            <div className='flex justify-center text-red-600'>{warningMsg}</div>
           )}
           <div className='flex flex-col space-y-2'>
             <label className='font-bold'>Email</label>
