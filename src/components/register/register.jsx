@@ -47,6 +47,9 @@ const Register = ({ authService }) => {
             case 'auth/email-already-in-use':
               setWarningMsg('Email is already in use.');
               break;
+            default:
+              setWarningMsg('Please provide valid email and password.');
+              break;
           }
         });
     }

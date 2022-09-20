@@ -49,6 +49,9 @@ const Login = ({ authService }) => {
           case 'auth/user-not-found':
             setWarningMsg('User cannot be found.');
             break;
+          default:
+            setWarningMsg('Please provide valid email and password.');
+            break;
         }
       });
   };
